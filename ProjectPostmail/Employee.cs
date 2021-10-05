@@ -13,10 +13,9 @@ namespace ProjectPostmail
         
         }
 
-        public override void GetInfo()
+        public override string GetInfo()
         {
-            base.GetInfo();
-            Console.WriteLine($"");
+            return base.GetInfo();
         }
     }
 }

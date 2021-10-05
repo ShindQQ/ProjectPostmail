@@ -15,10 +15,9 @@ namespace ProjectPostmail
             Location_of_work = location_of_work;
         }
 
-        public override void GetInfo()
+        public override string GetInfo()
         {
-            base.GetInfo();
-            Console.WriteLine($"Location of work: {Location_of_work}");
+            return base.GetInfo() + $"Location of work: {Location_of_work}";
         }
     }
 }

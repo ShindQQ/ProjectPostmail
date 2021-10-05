@@ -21,9 +21,9 @@ namespace ProjectPostmail
             ID = id;
         }
 
-        public virtual void GetInfo()
+        public virtual string GetInfo()
         {
-            Console.Write($"Age: {Age}, Name: {Name}, Surname: {Surname}, ID: {ID} ");
+            return $"Age: {Age}, Name: {Name}, Surname: {Surname}, ID: {ID} ";
         }
     }
 }

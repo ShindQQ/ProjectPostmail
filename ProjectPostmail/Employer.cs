@@ -15,10 +15,9 @@ namespace ProjectPostmail
             Ammount_of_workers = ammount_of_workers;
         }
 
-        public override void GetInfo()
+        public override string GetInfo()
         {
-            base.GetInfo();
-            Console.WriteLine($"Ammount of workers working on this Employer: {Ammount_of_workers}");
+            return base.GetInfo() + $"Ammount of workers working on this Employer: {Ammount_of_workers}";
         }
     }
 }

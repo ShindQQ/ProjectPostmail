@@ -21,10 +21,9 @@ namespace ProjectPostmail
             _price = price;
         }
 
-        public override void GetInfo()
+        public override string GetInfo()
         {
-            base.GetInfo();
-            Console.WriteLine($"Receiver id: {_receiver_id}, Postoffice number: {_postoffice_number}, Who pays: {_payment}, Price:{_price}");
+            return base.GetInfo() + $"Receiver id: {_receiver_id}, Postoffice number: {_postoffice_number}, Who pays: {_payment}, Price:{_price}";
         }
     }
 }
