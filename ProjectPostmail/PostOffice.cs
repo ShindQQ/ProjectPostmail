@@ -9,9 +9,9 @@ namespace ProjectPostmail
     class PostOffice : PostMail
     {
         private readonly float _department;
-        private string _location;
+        private (double, double, double) _location;
 
-        public PostOffice(float department, string location, int id, string name, double capacity) : base(id, name, capacity)
+        public PostOffice(float department, (double, double, double) location, int id, string name, double capacity) : base(id, name, capacity)
         {
             _department = department;
             _location = location;
@@ -33,7 +33,7 @@ namespace ProjectPostmail
             Console.WriteLine($"{_location}");
         }
 
-        public void SetLocation(string location)
+        public void SetLocation((double, double, double) location)
         {
             _location = location;
         }

@@ -12,8 +12,8 @@ namespace ProjectPostmail
         protected string _name { get; set; }
         protected double _capacity { get; set; }
 
-        protected static double _total_capacity = 0;
-        protected static int _offices_ammount = 0;
+        protected static double _total_capacity = default(double);
+        protected static int _offices_ammount = default(int);
         
         public PostMail(int id, string name, double capacity)
         {
@@ -39,7 +39,7 @@ namespace ProjectPostmail
             _total_capacity -= value;
             if(_total_capacity < 0)
             {
-                _total_capacity = 0;
+                _total_capacity = default(double);
             }
         }
     }

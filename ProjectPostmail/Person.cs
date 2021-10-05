@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectPostmail
 {
-    class Person
+    abstract class Person
     {
         protected int Age { get; set; }
         protected string Name { get; set; }
