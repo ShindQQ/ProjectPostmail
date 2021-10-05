@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjectPostmail
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace ProjectPostmail
         {
             Employer employer = new Employer(25, "Name", "Second Name", (float)125.4, "Kyiv", 1000);
 
-            employer.GetInfo();
+            //MessageBox.Show(employer.GetInfo());
         }
     }
 }
