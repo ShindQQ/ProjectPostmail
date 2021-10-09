@@ -30,7 +30,7 @@ namespace ProjectPostmail
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.AgeBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -38,8 +38,8 @@ namespace ProjectPostmail
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.groupBox1.Controls.Add(this.AgeBox);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(534, 37);
             this.groupBox1.Name = "groupBox1";
@@ -48,13 +48,16 @@ namespace ProjectPostmail
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Відправити посилку";
             // 
-            // textBox1
+            // AgeBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.AgeBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AgeBox.Location = new System.Drawing.Point(6, 55);
+            this.AgeBox.Multiline = true;
+            this.AgeBox.Name = "AgeBox";
+            this.AgeBox.Size = new System.Drawing.Size(173, 28);
+            this.AgeBox.TabIndex = 2;
+            this.AgeBox.Text = "Введіть ваш вік";
+            this.AgeBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -91,8 +94,8 @@ namespace ProjectPostmail
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox AgeBox;
     }
 }
 

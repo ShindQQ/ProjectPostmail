@@ -31,6 +31,22 @@ namespace ProjectPostmail
             _age = age;
         }
 
+        public bool SetAge(string age)
+        {
+            int number;
+            bool check = int.TryParse(age, out number);
+
+            if(check == true)
+            {
+                _age = number;
+                return check;
+            }
+            else
+            {
+                return check;
+            }
+        }
+
         public int GetAge()
         {
             return _age;
