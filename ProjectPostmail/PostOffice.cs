@@ -11,31 +11,30 @@ namespace ProjectPostmail
         private readonly float _department;
         private (double, double, double) _location;
 
-        public PostOffice(float department, (double, double, double) location, int id, string name, double capacity) : base(id, name, capacity)
+        public PostOffice(float department, (double, double, double) location, double id, string name, double capacity) : base(id, name, capacity)
         {
             _department = department;
             _location = location;
         }
 
-        public override void GetInfo()
+        public override string GetInfo()
         {
-            base.GetInfo();
-            Console.WriteLine($"Department: {_department}, Location: {_location}");
+            return base.GetInfo() + $"Department: {_department}, Location: {_location}";
         }
 
-        public void GetDepartment()
+        public float GetDepartment()
         {
-            Console.WriteLine($"{_department}");
-        }
-
-        public void GetLocation()
-        {
-            Console.WriteLine($"{_location}");
+            return _department;
         }
 
         public void SetLocation((double, double, double) location)
         {
             _location = location;
+        }
+
+        public (double, double, double) GetLocation()
+        {
+            return _location;
         }
     }
 }

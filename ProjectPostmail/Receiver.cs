@@ -23,5 +23,20 @@ namespace ProjectPostmail
         {
             return base.GetInfo() + $"Sender id: {_sender_id}, Postoffice number: {_postoffice_number}";
         }
+
+        public float GetSenderID()
+        {
+            return _sender_id;
+        }
+
+        public int GetPostofficeNumber()
+        {
+            return _postoffice_number;
+        }
+
+        public double GetPrice()
+        {
+            return _price;
+        }
     }
 }

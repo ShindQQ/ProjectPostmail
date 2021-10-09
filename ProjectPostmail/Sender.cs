@@ -25,5 +25,25 @@ namespace ProjectPostmail
         {
             return base.GetInfo() + $"Receiver id: {_receiver_id}, Postoffice number: {_postoffice_number}, Who pays: {_payment}, Price:{_price}";
         }
+
+        public float GetReceiverID()
+        {
+            return _receiver_id;
+        }
+
+        public int GetPostofficeNumber()
+        {
+            return _postoffice_number;
+        }
+
+        public bool GetPayment()
+        {
+            return _payment;
+        }
+
+        public double GetPrice()
+        {
+            return _price;
+        }
     }
 }

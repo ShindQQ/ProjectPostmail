@@ -8,14 +8,14 @@ namespace ProjectPostmail
 {
     class PostMail
     {
-        protected readonly int _id;
-        protected string _name { get; set; }
-        protected double _capacity { get; set; }
+        protected readonly double _id;
+        protected string _name;
+        protected double _capacity;
 
         protected static double _total_capacity = default(double);
         protected static int _offices_ammount = default(int);
         
-        public PostMail(int id, string name, double capacity)
+        public PostMail(double id, string name, double capacity)
         {
             _id = id;
             _name = name;
@@ -24,20 +24,40 @@ namespace ProjectPostmail
             _offices_ammount++;
         }
 
-        public virtual void GetInfo()
+        public virtual string GetInfo()
         {
-            Console.Write($"ID: {_id}, Name: {_name}, Capacity: {_capacity} ");
+            return $"ID: {_id}, Name: {_name}, Capacity: {_capacity} ";
         }
 
-        public void GetID()
+        public double GetID()
         {
-            Console.WriteLine($"{_id}");
+            return _id;
+        }
+
+        public void SetName(string name)
+        {
+            _name = name;
+        }
+
+        public string GetName()
+        {
+            return _name;
+        }
+
+        public void SetCapacity(double capacity)
+        {
+            _capacity = capacity;
+        }
+
+        public double GetCapacity()
+        {
+            return _capacity;
         }
 
         public void ChangeTotalCapacity(double value)
         {
             _total_capacity -= value;
-            if(_total_capacity < 0)
+            if (_total_capacity < 0)
             {
                 _total_capacity = default(double);
             }

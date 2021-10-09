@@ -24,9 +24,13 @@ namespace ProjectPostmail
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Employer employer = new Employer(25, "Name", "Second Name", (float)125.4, "Kyiv", 1000);
+            Sender _sender = new Sender(0, "Sender", "Surname_Sender", (float)122.5, (float)155.5, 5, true, 260);
+            
+        }
 
-            MessageBox.Show(employer.GetInfo());
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
