@@ -14,10 +14,17 @@ namespace ProjectPostmail
     public partial class MainForm : Form
     {
         Sender _sender;
-        int age;
-        int postoffice_number;
-        double sender_id;
-        double receiver_id;
+        int age = default(int);
+        int postoffice_number_sender = default(int);
+        int postoffice_number_receiver = default(int);
+        double sender_id = default(double);
+        double receiver_id = default(double);
+        double capacity = default(double);
+        double price = default(double);
+
+        PostOffice[] postoffices = new PostOffice[20];
+
+        // Random random = new Random();
 
         IFormatProvider formatter = new NumberFormatInfo { NumberDecimalSeparator = "." };
 
@@ -27,6 +34,11 @@ namespace ProjectPostmail
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SendParcelBox_Enter(object sender, EventArgs e)
         {
 
         }
@@ -47,7 +59,6 @@ namespace ProjectPostmail
                 MessageBox.Show("Exception happened");
             }
         }
-
 
         private void NameBox_TextChanged(object sender, EventArgs e)
         {
@@ -93,11 +104,55 @@ namespace ProjectPostmail
             }
         }
 
-        private void PostofficeNumberBox_TextChanged(object sender, EventArgs e)
+        private void PostofficeNumberSenderBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                bool check = int.TryParse(PostofficeNumberBox.Text, out postoffice_number);
+                bool check = int.TryParse(PostofficeNumberSenderBox.Text, out postoffice_number_sender);
+
+                if (!check)
+                {
+                    MessageBox.Show("Mistake with data");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Exception happened");
+            }
+        }
+
+        private void PostOfficeSenderName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PostofficeNumberReceiverBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                bool check = int.TryParse(PostofficeNumberReceiverBox.Text, out postoffice_number_receiver);
+
+                if (!check)
+                {
+                    MessageBox.Show("Mistake with data");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Exception happened");
+            }
+        }
+
+        private void PostOfficeReceiverName_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ParcelCapacity_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                bool check = double.TryParse(ParcelCapacity.Text, out capacity);
 
                 if (!check)
                 {
@@ -120,8 +175,30 @@ namespace ProjectPostmail
 
         }
 
+        private void ParcelInfo_Click(object sender, EventArgs e)
+        {
+            if (_sender != null)
+            {
+                ParcelInfo.Text = "Ваше відправлення: " + _sender.GetInfo();
+            }
+        }
+
         private void CreateParcel_Click(object sender, EventArgs e)
         {
+            if(postoffices[postoffice_number_sender] == null)
+            {
+                postoffices[postoffice_number_sender] = new PostOffice(postoffice_number_sender, ((new Random()).NextDouble(), (new Random()).NextDouble(), (new Random()).NextDouble()), (new Random()).NextDouble(), PostOfficeSenderName.Text, 0);
+            }
+            if (postoffices[postoffice_number_receiver] == null)
+            {
+                postoffices[postoffice_number_receiver] = new PostOffice(postoffice_number_receiver, ((new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1), (new Random()).NextDouble(), PostOfficeReceiverName.Text, 0);
+            }
+
+            if (postoffices[postoffice_number_sender] != null && postoffices[postoffice_number_receiver] != null)
+            {
+                price = Math.Sqrt(Math.Pow(postoffices[postoffice_number_receiver].GetLocation().Item1 - postoffices[postoffice_number_sender].GetLocation().Item1, 2) + Math.Pow(postoffices[postoffice_number_receiver].GetLocation().Item2 - postoffices[postoffice_number_sender].GetLocation().Item2, 2) + Math.Pow(postoffices[postoffice_number_receiver].GetLocation().Item3 - postoffices[postoffice_number_sender].GetLocation().Item3, 2)); 
+            }
+
             if (SenderCheckBox.Checked == false && ReceiverCheckBox.Checked == false)
             {
                 MessageBox.Show("Ви не обрали хто платить за посилку!");
@@ -132,17 +209,22 @@ namespace ProjectPostmail
             }
             else if (SenderCheckBox.Checked == true)
             {
-                _sender = new Sender(age, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number, SenderCheckBox.Checked, 260);
+                _sender = new Sender(age, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, true, price);
             }
             else if (ReceiverCheckBox.Checked == true)
             {
-                _sender = new Sender(age, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number, ReceiverCheckBox.Checked, 260);
+                _sender = new Sender(age, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, false, price);
             }
 
             if (_sender != null)
             {
-                MessageBox.Show(_sender.GetInfo());
+                ParcelInfo.Text = "Ваше відправлення: " + _sender.GetInfo();
             }
+        }
+
+        private void TextSendLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
