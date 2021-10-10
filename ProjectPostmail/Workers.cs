@@ -10,7 +10,7 @@ namespace ProjectPostmail
     {
         protected string _location_of_work;
 
-        public Workers(int age, string name, string surname, float id, string location_of_work) : base(age, name, surname, id)
+        public Workers(int age, string name, string surname, double id, string location_of_work) : base(age, name, surname, id)
         {
             _location_of_work = location_of_work;
         }

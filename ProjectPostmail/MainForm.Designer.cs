@@ -29,47 +29,130 @@ namespace ProjectPostmail
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PostofficeNumberBox = new System.Windows.Forms.TextBox();
+            this.ReceiverIDBox = new System.Windows.Forms.TextBox();
+            this.SenderIDBox = new System.Windows.Forms.TextBox();
+            this.CreateParcel = new System.Windows.Forms.Button();
             this.AgeBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.NameBox = new System.Windows.Forms.TextBox();
+            this.SurnameBox = new System.Windows.Forms.TextBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.SenderCheckBox = new System.Windows.Forms.CheckBox();
+            this.ReceiverCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.groupBox1.Controls.Add(this.ReceiverCheckBox);
+            this.groupBox1.Controls.Add(this.SenderCheckBox);
+            this.groupBox1.Controls.Add(this.PostofficeNumberBox);
+            this.groupBox1.Controls.Add(this.ReceiverIDBox);
+            this.groupBox1.Controls.Add(this.SenderIDBox);
+            this.groupBox1.Controls.Add(this.CreateParcel);
             this.groupBox1.Controls.Add(this.AgeBox);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.NameBox);
+            this.groupBox1.Controls.Add(this.SurnameBox);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(534, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 289);
+            this.groupBox1.Size = new System.Drawing.Size(200, 347);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Відправити посилку";
             // 
+            // PostofficeNumberBox
+            // 
+            this.PostofficeNumberBox.Location = new System.Drawing.Point(6, 201);
+            this.PostofficeNumberBox.Name = "PostofficeNumberBox";
+            this.PostofficeNumberBox.Size = new System.Drawing.Size(173, 22);
+            this.PostofficeNumberBox.TabIndex = 9;
+            this.PostofficeNumberBox.Text = "Введіть номер відділення";
+            this.PostofficeNumberBox.TextChanged += new System.EventHandler(this.PostofficeNumberBox_TextChanged);
+            // 
+            // ReceiverIDBox
+            // 
+            this.ReceiverIDBox.Location = new System.Drawing.Point(6, 173);
+            this.ReceiverIDBox.Name = "ReceiverIDBox";
+            this.ReceiverIDBox.Size = new System.Drawing.Size(173, 22);
+            this.ReceiverIDBox.TabIndex = 8;
+            this.ReceiverIDBox.Text = "Введіть ID отримувача";
+            this.ReceiverIDBox.TextChanged += new System.EventHandler(this.ReceiverIDBox_TextChanged);
+            // 
+            // SenderIDBox
+            // 
+            this.SenderIDBox.Location = new System.Drawing.Point(6, 145);
+            this.SenderIDBox.Name = "SenderIDBox";
+            this.SenderIDBox.Size = new System.Drawing.Size(173, 22);
+            this.SenderIDBox.TabIndex = 7;
+            this.SenderIDBox.Text = "Введіть ваш ID";
+            this.SenderIDBox.TextChanged += new System.EventHandler(this.SenderIDBox_TextChanged);
+            // 
+            // CreateParcel
+            // 
+            this.CreateParcel.AutoSize = true;
+            this.CreateParcel.Location = new System.Drawing.Point(6, 28);
+            this.CreateParcel.Name = "CreateParcel";
+            this.CreateParcel.Size = new System.Drawing.Size(173, 27);
+            this.CreateParcel.TabIndex = 6;
+            this.CreateParcel.Text = "Створити посилку";
+            this.CreateParcel.UseVisualStyleBackColor = true;
+            this.CreateParcel.Click += new System.EventHandler(this.CreateParcel_Click);
+            // 
             // AgeBox
             // 
-            this.AgeBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AgeBox.Location = new System.Drawing.Point(6, 55);
-            this.AgeBox.Multiline = true;
+            this.AgeBox.Location = new System.Drawing.Point(6, 61);
             this.AgeBox.Name = "AgeBox";
-            this.AgeBox.Size = new System.Drawing.Size(173, 28);
-            this.AgeBox.TabIndex = 2;
+            this.AgeBox.Size = new System.Drawing.Size(173, 22);
+            this.AgeBox.TabIndex = 5;
             this.AgeBox.Text = "Введіть ваш вік";
-            this.AgeBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.AgeBox.TextChanged += new System.EventHandler(this.AgeBox_TextChanged);
             // 
-            // button1
+            // NameBox
             // 
-            this.button1.AutoSize = true;
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Location = new System.Drawing.Point(6, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 27);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Створити відправлення";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.NameBox.Location = new System.Drawing.Point(6, 89);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(173, 22);
+            this.NameBox.TabIndex = 4;
+            this.NameBox.Text = "Введіть ваше ім\'я";
+            this.NameBox.TextChanged += new System.EventHandler(this.NameBox_TextChanged);
+            // 
+            // SurnameBox
+            // 
+            this.SurnameBox.Location = new System.Drawing.Point(6, 117);
+            this.SurnameBox.Name = "SurnameBox";
+            this.SurnameBox.Size = new System.Drawing.Size(173, 22);
+            this.SurnameBox.TabIndex = 3;
+            this.SurnameBox.Text = "Введіть ваше прізвище";
+            this.SurnameBox.TextChanged += new System.EventHandler(this.SurnameBox_TextChanged);
+            // 
+            // SenderCheckBox
+            // 
+            this.SenderCheckBox.AutoSize = true;
+            this.SenderCheckBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SenderCheckBox.Location = new System.Drawing.Point(6, 229);
+            this.SenderCheckBox.Name = "SenderCheckBox";
+            this.SenderCheckBox.Size = new System.Drawing.Size(163, 21);
+            this.SenderCheckBox.TabIndex = 10;
+            this.SenderCheckBox.Text = "Оплачує відправник";
+            this.SenderCheckBox.UseVisualStyleBackColor = false;
+            this.SenderCheckBox.CheckedChanged += new System.EventHandler(this.SenderCheckBox_CheckedChanged);
+            // 
+            // ReceiverCheckBox
+            // 
+            this.ReceiverCheckBox.AutoSize = true;
+            this.ReceiverCheckBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ReceiverCheckBox.Location = new System.Drawing.Point(6, 256);
+            this.ReceiverCheckBox.Name = "ReceiverCheckBox";
+            this.ReceiverCheckBox.Size = new System.Drawing.Size(161, 21);
+            this.ReceiverCheckBox.TabIndex = 11;
+            this.ReceiverCheckBox.Text = "Оплачує отримувач";
+            this.ReceiverCheckBox.UseVisualStyleBackColor = false;
+            this.ReceiverCheckBox.CheckedChanged += new System.EventHandler(this.ReceiverCheckBox_CheckedChanged);
             // 
             // MainForm
             // 
@@ -87,6 +170,7 @@ namespace ProjectPostmail
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -94,8 +178,16 @@ namespace ProjectPostmail
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.TextBox NameBox;
+        private System.Windows.Forms.TextBox SurnameBox;
         private System.Windows.Forms.TextBox AgeBox;
+        private System.Windows.Forms.Button CreateParcel;
+        private System.Windows.Forms.TextBox PostofficeNumberBox;
+        private System.Windows.Forms.TextBox ReceiverIDBox;
+        private System.Windows.Forms.TextBox SenderIDBox;
+        private System.Windows.Forms.CheckBox ReceiverCheckBox;
+        private System.Windows.Forms.CheckBox SenderCheckBox;
     }
 }
 

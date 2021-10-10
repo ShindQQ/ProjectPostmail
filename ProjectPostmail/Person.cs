@@ -11,9 +11,9 @@ namespace ProjectPostmail
         protected int _age;
         protected string _name;
         protected string _surname;
-        protected readonly float _id;
+        protected readonly double _id;
 
-        protected Person(int age, string name, string surname, float id)
+        protected Person(int age, string name, string surname, double id)
         {
             _age = age;
             _name = name;

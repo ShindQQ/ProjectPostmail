@@ -10,7 +10,7 @@ namespace ProjectPostmail
     {
         private int _ammount_of_workers;
 
-        public Employer(int age, string name, string second_name, float id, string location_of_work, int ammount_of_workers) : base(age, name, second_name, id, location_of_work)
+        public Employer(int age, string name, string second_name, double id, string location_of_work, int ammount_of_workers) : base(age, name, second_name, id, location_of_work)
         {
             _ammount_of_workers = ammount_of_workers;
         }

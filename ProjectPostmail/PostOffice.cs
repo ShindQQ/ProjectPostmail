@@ -8,10 +8,10 @@ namespace ProjectPostmail
 {
     class PostOffice : PostMail
     {
-        private readonly float _department;
+        private readonly double _department;
         private (double, double, double) _location;
 
-        public PostOffice(float department, (double, double, double) location, double id, string name, double capacity) : base(id, name, capacity)
+        public PostOffice(double department, (double, double, double) location, double id, string name, double capacity) : base(id, name, capacity)
         {
             _department = department;
             _location = location;
@@ -22,7 +22,7 @@ namespace ProjectPostmail
             return base.GetInfo() + $"Department: {_department}, Location: {_location}";
         }
 
-        public float GetDepartment()
+        public double GetDepartment()
         {
             return _department;
         }

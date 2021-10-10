@@ -8,12 +8,12 @@ namespace ProjectPostmail
 {
     class Sender : Person
     {
-        private readonly float _receiver_id;
+        private readonly double _receiver_id;
         private readonly int _postoffice_number;
         private readonly bool _payment;
         private readonly double _price;
 
-        public Sender(int age, string name, string surname, float id, float receiver_id, int postoffice_number, bool payment, double price) : base(age, name, surname, id)
+        public Sender(int age, string name, string surname, double id, double receiver_id, int postoffice_number, bool payment, double price) : base(age, name, surname, id)
         {
             _receiver_id = receiver_id;
             _postoffice_number = postoffice_number;
@@ -26,7 +26,7 @@ namespace ProjectPostmail
             return base.GetInfo() + $"Receiver id: {_receiver_id}, Postoffice number: {_postoffice_number}, Who pays: {_payment}, Price:{_price}";
         }
 
-        public float GetReceiverID()
+        public double GetReceiverID()
         {
             return _receiver_id;
         }
