@@ -31,6 +31,9 @@ namespace ProjectPostmail
         {
             this.components = new System.ComponentModel.Container();
             this.SendParcelBox = new System.Windows.Forms.GroupBox();
+            this.ParcelCapacity = new System.Windows.Forms.TextBox();
+            this.PostOfficeReceiverName = new System.Windows.Forms.TextBox();
+            this.PostofficeNumberReceiverBox = new System.Windows.Forms.TextBox();
             this.PostOfficeSenderName = new System.Windows.Forms.TextBox();
             this.TextSendLabel = new System.Windows.Forms.Label();
             this.ReceiverCheckBox = new System.Windows.Forms.CheckBox();
@@ -44,9 +47,6 @@ namespace ProjectPostmail
             this.SurnameBox = new System.Windows.Forms.TextBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ParcelInfo = new System.Windows.Forms.Label();
-            this.PostofficeNumberReceiverBox = new System.Windows.Forms.TextBox();
-            this.PostOfficeReceiverName = new System.Windows.Forms.TextBox();
-            this.ParcelCapacity = new System.Windows.Forms.TextBox();
             this.SendParcelBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -69,13 +69,40 @@ namespace ProjectPostmail
             this.SendParcelBox.Controls.Add(this.NameBox);
             this.SendParcelBox.Controls.Add(this.SurnameBox);
             this.SendParcelBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SendParcelBox.Location = new System.Drawing.Point(29, 3);
+            this.SendParcelBox.Location = new System.Drawing.Point(12, 3);
             this.SendParcelBox.Name = "SendParcelBox";
-            this.SendParcelBox.Size = new System.Drawing.Size(250, 435);
+            this.SendParcelBox.Size = new System.Drawing.Size(228, 435);
             this.SendParcelBox.TabIndex = 2;
             this.SendParcelBox.TabStop = false;
             this.SendParcelBox.Text = "Відправити посилку";
             this.SendParcelBox.Enter += new System.EventHandler(this.SendParcelBox_Enter);
+            // 
+            // ParcelCapacity
+            // 
+            this.ParcelCapacity.Location = new System.Drawing.Point(6, 313);
+            this.ParcelCapacity.Name = "ParcelCapacity";
+            this.ParcelCapacity.Size = new System.Drawing.Size(173, 22);
+            this.ParcelCapacity.TabIndex = 16;
+            this.ParcelCapacity.Text = "Введіть об\'єм посилки:";
+            this.ParcelCapacity.TextChanged += new System.EventHandler(this.ParcelCapacity_TextChanged);
+            // 
+            // PostOfficeReceiverName
+            // 
+            this.PostOfficeReceiverName.Location = new System.Drawing.Point(6, 285);
+            this.PostOfficeReceiverName.Name = "PostOfficeReceiverName";
+            this.PostOfficeReceiverName.Size = new System.Drawing.Size(211, 22);
+            this.PostOfficeReceiverName.TabIndex = 15;
+            this.PostOfficeReceiverName.Text = "Назва відділення отримувача";
+            this.PostOfficeReceiverName.TextChanged += new System.EventHandler(this.PostOfficeReceiverName_TextChanged);
+            // 
+            // PostofficeNumberReceiverBox
+            // 
+            this.PostofficeNumberReceiverBox.Location = new System.Drawing.Point(6, 257);
+            this.PostofficeNumberReceiverBox.Name = "PostofficeNumberReceiverBox";
+            this.PostofficeNumberReceiverBox.Size = new System.Drawing.Size(211, 22);
+            this.PostofficeNumberReceiverBox.TabIndex = 14;
+            this.PostofficeNumberReceiverBox.Text = "Номер відділення отримувача";
+            this.PostofficeNumberReceiverBox.TextChanged += new System.EventHandler(this.PostofficeNumberReceiverBox_TextChanged);
             // 
             // PostOfficeSenderName
             // 
@@ -188,46 +215,19 @@ namespace ProjectPostmail
             // ParcelInfo
             // 
             this.ParcelInfo.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ParcelInfo.Location = new System.Drawing.Point(322, 39);
+            this.ParcelInfo.Location = new System.Drawing.Point(281, 260);
             this.ParcelInfo.Name = "ParcelInfo";
-            this.ParcelInfo.Size = new System.Drawing.Size(173, 239);
+            this.ParcelInfo.Size = new System.Drawing.Size(173, 178);
             this.ParcelInfo.TabIndex = 14;
             this.ParcelInfo.Text = "Ваше відправлення:";
             this.ParcelInfo.Click += new System.EventHandler(this.ParcelInfo_Click);
-            // 
-            // PostofficeNumberReceiverBox
-            // 
-            this.PostofficeNumberReceiverBox.Location = new System.Drawing.Point(6, 257);
-            this.PostofficeNumberReceiverBox.Name = "PostofficeNumberReceiverBox";
-            this.PostofficeNumberReceiverBox.Size = new System.Drawing.Size(211, 22);
-            this.PostofficeNumberReceiverBox.TabIndex = 14;
-            this.PostofficeNumberReceiverBox.Text = "Номер відділення отримувача";
-            this.PostofficeNumberReceiverBox.TextChanged += new System.EventHandler(this.PostofficeNumberReceiverBox_TextChanged);
-            // 
-            // PostOfficeReceiverName
-            // 
-            this.PostOfficeReceiverName.Location = new System.Drawing.Point(6, 285);
-            this.PostOfficeReceiverName.Name = "PostOfficeReceiverName";
-            this.PostOfficeReceiverName.Size = new System.Drawing.Size(211, 22);
-            this.PostOfficeReceiverName.TabIndex = 15;
-            this.PostOfficeReceiverName.Text = "Назва відділення отримувача";
-            this.PostOfficeReceiverName.TextChanged += new System.EventHandler(this.PostOfficeReceiverName_TextChanged);
-            // 
-            // ParcelCapacity
-            // 
-            this.ParcelCapacity.Location = new System.Drawing.Point(6, 313);
-            this.ParcelCapacity.Name = "ParcelCapacity";
-            this.ParcelCapacity.Size = new System.Drawing.Size(173, 22);
-            this.ParcelCapacity.TabIndex = 16;
-            this.ParcelCapacity.Text = "Введіть об\'єм посилки:";
-            this.ParcelCapacity.TextChanged += new System.EventHandler(this.ParcelCapacity_TextChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BackgroundImage = global::ProjectPostmail.Properties.Resources.banner;
+            this.BackgroundImage = global::ProjectPostmail.Properties.Resources.banner2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ParcelInfo);

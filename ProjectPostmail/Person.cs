@@ -26,12 +26,51 @@ namespace ProjectPostmail
             return $"Age: {_age}, Name: {_name}, Surname: {_surname}, ID: {_id} ";
         }
 
-        public void SetAge(int age)
+        public int Age
         {
-            _age = age;
+            get
+            {
+                return _age;
+            }
+            set
+            {
+                _age = value;
+            }
         }
 
-        public bool SetAge(string age)
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+
+        public string Surname
+        {
+            get
+            {
+                return _surname;
+            }
+            set
+            {
+                _surname = value;
+            }
+        }
+
+        public double ID
+        {
+            get
+            {
+                return _id;
+            }
+        }
+
+        public bool SetStringAge(string age)
         {
             int number;
             bool check = int.TryParse(age, out number);
@@ -45,36 +84,6 @@ namespace ProjectPostmail
             {
                 return check;
             }
-        }
-
-        public int GetAge()
-        {
-            return _age;
-        }
-
-        public void SetName(string name)
-        {
-            _name = name;
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public void SetSurname(string surname)
-        {
-            _surname = surname;
-        }
-
-        public string GetSurname()
-        {
-            return _surname;
-        }
-
-        public double GetID()
-        {
-            return _id;
         }
     }
 }

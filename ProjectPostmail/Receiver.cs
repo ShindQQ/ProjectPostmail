@@ -26,24 +26,36 @@ namespace ProjectPostmail
             return base.GetInfo() + $"Sender id: {_sender_id}, Postoffice number: {_postoffice_number_receiver}";
         }
 
-        public double GetSenderID()
+        public double Sender_ID
         {
-            return _sender_id;
+            get
+            {
+                return _sender_id;
+            }
         }
 
-        public int GetPostofficeNumberReceiver()
+        public int PostofficeNumberReceiver
         {
-            return _postoffice_number_receiver;
+            get
+            {
+                return _postoffice_number_receiver;
+            }
         }
 
-        public int GetPostofficeNumberSender()
+        public int PostofficeNumberSender
         {
-            return _postoffice_number_sender;
+            get
+            {
+                return _postoffice_number_sender;
+            }
         }
 
-        public double GetPrice()
+        public double Price
         {
-            return _price;
+            get
+            {
+                return _price;
+            }
         }
     }
 }

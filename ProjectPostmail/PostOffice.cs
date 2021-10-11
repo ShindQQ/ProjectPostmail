@@ -22,19 +22,24 @@ namespace ProjectPostmail
             return base.GetInfo() + $"Department: {_department}, Location: {_location}";
         }
 
-        public double GetDepartment()
+        public double Department
         {
-            return _department;
+            get
+            {
+                return _department;
+            }
         }
 
-        public void SetLocation((double, double, double) location)
+        public (double, double, double) Location
         {
-            _location = location;
-        }
-
-        public (double, double, double) GetLocation()
-        {
-            return _location;
+            get
+            {
+                return _location;
+            }
+            set
+            {
+                _location = value;
+            }
         }
     }
 }

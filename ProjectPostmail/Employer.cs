@@ -20,14 +20,16 @@ namespace ProjectPostmail
             return base.GetInfo() + $"Ammount of workers working on this Employer: {_ammount_of_workers}";
         }
 
-        public void SetAmmountOfWorkers(int ammount_of_workers)
+        public int Ammount_Of_Workers
         {
-            _ammount_of_workers = ammount_of_workers;
-        }
-
-        public int GetAmmountOfWorkers()
-        {
-            return _ammount_of_workers;
+            get
+            {
+                return _ammount_of_workers;
+            }
+            set
+            {
+                _ammount_of_workers = value;
+            }
         }
     }
 }

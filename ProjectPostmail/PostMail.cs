@@ -29,29 +29,36 @@ namespace ProjectPostmail
             return $"ID: {_id}, Name: {_name}, Capacity: {_capacity} ";
         }
 
-        public double GetID()
+        public double ID
         {
-            return _id;
+            get
+            {
+                return _id;
+            }
         }
 
-        public void SetName(string name)
+        public string Name
         {
-            _name = name;
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
         }
 
-        public string GetName()
+        public double Capacity
         {
-            return _name;
-        }
-
-        public void SetCapacity(double capacity)
-        {
-            _capacity = capacity;
-        }
-
-        public double GetCapacity()
-        {
-            return _capacity;
+            get
+            {
+                return _capacity;
+            }
+            set
+            {
+                _capacity = value;
+            }
         }
 
         public void ChangeTotalCapacity(double value)

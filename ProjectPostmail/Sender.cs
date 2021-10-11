@@ -37,29 +37,52 @@ namespace ProjectPostmail
             }
         }
 
-        public double GetReceiverID()
+        public double Receiver_ID
         {
-            return _receiver_id;
+            get
+            {
+                return _receiver_id;
+            }
         }
 
-        public int GetPostofficeNumberSender()
+        public int PostofficeNumberSender
         {
-            return _postoffice_number_sender;
+            get
+            {
+                return _postoffice_number_sender;
+            }
         }
 
-        public int GetPostofficeNumberReceiver()
+        public int PostofficeNumberReceiver
         {
-            return _postoffice_number_receiver;
+            get
+            {
+                return _postoffice_number_receiver;
+            }
         }
 
-        public bool GetPayment()
+        public double Capacity
         {
-            return _payment;
+            get
+            {
+                return _capacity;
+            }
         }
 
-        public double GetPrice()
+        public bool Payment
         {
-            return _price;
+            get
+            {
+                return _payment;
+            }
+        }
+
+        public double Price
+        {
+            get
+            {
+                return _price;
+            }
         }
     }
 }

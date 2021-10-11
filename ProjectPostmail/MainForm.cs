@@ -154,7 +154,7 @@ namespace ProjectPostmail
 
             if (postoffices[postoffice_number_sender] != null && postoffices[postoffice_number_receiver] != null)
             {
-                price = Math.Sqrt(Math.Pow(postoffices[postoffice_number_receiver].GetLocation().Item1 - postoffices[postoffice_number_sender].GetLocation().Item1, 2) + Math.Pow(postoffices[postoffice_number_receiver].GetLocation().Item2 - postoffices[postoffice_number_sender].GetLocation().Item2, 2) + Math.Pow(postoffices[postoffice_number_receiver].GetLocation().Item3 - postoffices[postoffice_number_sender].GetLocation().Item3, 2)); 
+                price = Math.Sqrt(Math.Pow(postoffices[postoffice_number_receiver].Location.Item1 - postoffices[postoffice_number_sender].Location.Item1, 2) + Math.Pow(postoffices[postoffice_number_receiver].Location.Item2 - postoffices[postoffice_number_sender].Location.Item2, 2) + Math.Pow(postoffices[postoffice_number_receiver].Location.Item3 - postoffices[postoffice_number_sender].Location.Item3, 2)); 
             }
 
             if (SenderCheckBox.Checked == false && ReceiverCheckBox.Checked == false)

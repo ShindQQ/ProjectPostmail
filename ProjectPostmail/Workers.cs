@@ -20,14 +20,16 @@ namespace ProjectPostmail
             return base.GetInfo() + $"Location of work: {_location_of_work}";
         }
 
-        public void SetLocationOfWork(string location_of_work)
+        public string Location_Of_Work
         {
-            _location_of_work = location_of_work;
-        }
-
-        public string GetLocationOfWork()
-        {
-            return _location_of_work;
+            get
+            {
+                return _location_of_work;
+            }
+            set
+            {
+                _location_of_work = value;
+            }
         }
     }
 }
