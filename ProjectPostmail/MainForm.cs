@@ -45,18 +45,11 @@ namespace ProjectPostmail
 
         private void AgeBox_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                bool check = int.TryParse(AgeBox.Text, out age);
+            bool check = int.TryParse(AgeBox.Text, out age);
 
-                if (!check)
-                {
-                    MessageBox.Show("Mistake with data");
-                }
-            }
-            catch
+            if (!check)
             {
-                MessageBox.Show("Exception happened");
+                MessageBox.Show("Mistake with data");
             }
         }
 
@@ -72,52 +65,31 @@ namespace ProjectPostmail
 
         private void SenderIDBox_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                bool check = double.TryParse(SenderIDBox.Text, NumberStyles.Currency, formatter, out sender_id);
+            bool check = double.TryParse(SenderIDBox.Text, NumberStyles.Currency, formatter, out sender_id);
 
-                if (!check)
-                {
-                    MessageBox.Show("Mistake with data");
-                }
-            }
-            catch
+            if (!check)
             {
-                MessageBox.Show("Exception happened");
+                MessageBox.Show("Mistake with data");
             }
         }
 
         private void ReceiverIDBox_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                bool check = double.TryParse(ReceiverIDBox.Text, NumberStyles.Currency, formatter, out receiver_id);
+            bool check = double.TryParse(ReceiverIDBox.Text, NumberStyles.Currency, formatter, out receiver_id);
 
-                if (!check)
-                {
-                    MessageBox.Show("Mistake with data");
-                }
-            }
-            catch
+            if (!check)
             {
-                MessageBox.Show("Exception happened");
+                MessageBox.Show("Mistake with data");
             }
         }
 
         private void PostofficeNumberSenderBox_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                bool check = int.TryParse(PostofficeNumberSenderBox.Text, out postoffice_number_sender);
+            bool check = int.TryParse(PostofficeNumberSenderBox.Text, out postoffice_number_sender);
 
-                if (!check)
-                {
-                    MessageBox.Show("Mistake with data");
-                }
-            }
-            catch
+            if (!check)
             {
-                MessageBox.Show("Exception happened");
+                MessageBox.Show("Mistake with data");
             }
         }
 
@@ -128,18 +100,11 @@ namespace ProjectPostmail
 
         private void PostofficeNumberReceiverBox_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                bool check = int.TryParse(PostofficeNumberReceiverBox.Text, out postoffice_number_receiver);
+            bool check = int.TryParse(PostofficeNumberReceiverBox.Text, out postoffice_number_receiver);
 
-                if (!check)
-                {
-                    MessageBox.Show("Mistake with data");
-                }
-            }
-            catch
+            if (!check)
             {
-                MessageBox.Show("Exception happened");
+                MessageBox.Show("Mistake with data");
             }
         }
 
@@ -150,18 +115,11 @@ namespace ProjectPostmail
 
         private void ParcelCapacity_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                bool check = double.TryParse(ParcelCapacity.Text, out capacity);
+            bool check = double.TryParse(ParcelCapacity.Text, out capacity);
 
-                if (!check)
-                {
-                    MessageBox.Show("Mistake with data");
-                }
-            }
-            catch
+            if (!check)
             {
-                MessageBox.Show("Exception happened");
+                MessageBox.Show("Mistake with data");
             }
         }
 
@@ -219,6 +177,7 @@ namespace ProjectPostmail
             if (_sender != null)
             {
                 ParcelInfo.Text = "Ваше відправлення: " + _sender.GetInfo();
+                postoffices[postoffice_number_receiver].ChangeTotalCapacity(capacity);
             }
         }
 
