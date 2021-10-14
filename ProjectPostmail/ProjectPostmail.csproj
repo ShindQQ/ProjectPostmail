@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Employee.cs" />
     <Compile Include="Employer.cs" />
+    <Compile Include="Exceptions.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PostMail.cs" />
     <Compile Include="PostOffice.cs" />

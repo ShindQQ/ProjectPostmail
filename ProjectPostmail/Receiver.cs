@@ -16,8 +16,21 @@ namespace ProjectPostmail
         public Receiver(int age, string name, string surname, double id, double sender_id, int postoffice_number_receiver, int postoffice_number_sender, double price) : base(age, name, surname, id)
         {
             _sender_id = sender_id;
-            _postoffice_number_receiver = postoffice_number_receiver;
-            _postoffice_number_sender = postoffice_number_sender;
+
+            if (postoffice_number_receiver < 0)
+            {
+                throw new PostofficeNumberException("Receiver PostofficeNumber is less than 0", postoffice_number_receiver);
+            }
+            else if (postoffice_number_sender < 0)
+            {
+                throw new PostofficeNumberException("Sender PostofficeNumber is less than 0", postoffice_number_sender);
+            }
+            else
+            {
+                _postoffice_number_sender = postoffice_number_sender;
+                _postoffice_number_receiver = postoffice_number_receiver;
+            }
+
             _price = price;
         }
 

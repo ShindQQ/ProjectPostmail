@@ -18,8 +18,17 @@ namespace ProjectPostmail
         public PostMail(double id, string name, double capacity)
         {
             _id = id;
-            _name = name;
-            _capacity = capacity;
+            Name = name;
+
+            if (capacity < 0)
+            {
+                throw new CapacityException("Capacity is less or equal 0", capacity);
+            }
+            else
+            {
+                Capacity = capacity;
+            }
+
             _total_capacity += capacity;
             _offices_ammount++;
         }
@@ -63,10 +72,13 @@ namespace ProjectPostmail
 
         public void ChangeTotalCapacity(double value)
         {
-            _total_capacity -= value;
-            if (_total_capacity < 0)
+            if ((_total_capacity - value) < 0)
             {
-                _total_capacity = default(double);
+                throw new CapacityException("Total capacity is less than 0", _total_capacity);
+            }
+            else
+            {
+                _total_capacity -= value;
             }
         }
     }

@@ -12,7 +12,14 @@ namespace ProjectPostmail
 
         public Employer(int age, string name, string second_name, double id, string location_of_work, int ammount_of_workers) : base(age, name, second_name, id, location_of_work)
         {
-            _ammount_of_workers = ammount_of_workers;
+            if (ammount_of_workers < 0)
+            {
+                throw new WorkersAmmountException("Ammount of workers is less than 0", ammount_of_workers);
+            }
+            else
+            {
+                _ammount_of_workers = ammount_of_workers;
+            }
         }
 
         public override string GetInfo()

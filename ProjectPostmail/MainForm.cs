@@ -24,9 +24,20 @@ namespace ProjectPostmail
 
         PostOffice[] postoffices = new PostOffice[20];
 
-        // Random random = new Random();
-
         IFormatProvider formatter = new NumberFormatInfo { NumberDecimalSeparator = "." };
+
+        private Sender InitializeSender(int age, string name, string surname, double sender_id, double receiver_id, int postoffice_number_sender, int postoffice_number_receiver, double capacity, bool payment, double price)
+        {
+            try
+            {
+                return new Sender(age, name, surname, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, payment, price);
+            }
+            catch (AgeException exp)
+            {
+                MessageBox.Show($"{exp.Message}, Value: {exp.Value}");
+                return null;
+            }
+        }
 
         public MainForm()
         {
@@ -143,41 +154,42 @@ namespace ProjectPostmail
 
         private void CreateParcel_Click(object sender, EventArgs e)
         {
-            if(postoffices[postoffice_number_sender] == null)
+            try
             {
-                postoffices[postoffice_number_sender] = new PostOffice(postoffice_number_sender, ((new Random()).NextDouble(), (new Random()).NextDouble(), (new Random()).NextDouble()), (new Random()).NextDouble(), PostOfficeSenderName.Text, 0);
-            }
-            if (postoffices[postoffice_number_receiver] == null)
-            {
-                postoffices[postoffice_number_receiver] = new PostOffice(postoffice_number_receiver, ((new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1), (new Random()).NextDouble(), PostOfficeReceiverName.Text, 0);
-            }
+                postoffices[postoffice_number_sender] = postoffices[postoffice_number_sender] ?? new PostOffice(postoffice_number_sender, ((new Random()).NextDouble(), (new Random()).NextDouble(), (new Random()).NextDouble()), (new Random()).NextDouble(), PostOfficeSenderName.Text, 0);
+                postoffices[postoffice_number_receiver] = postoffices[postoffice_number_receiver] ?? new PostOffice(postoffice_number_receiver, ((new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1), (new Random()).NextDouble(), PostOfficeReceiverName.Text, 0);
 
-            if (postoffices[postoffice_number_sender] != null && postoffices[postoffice_number_receiver] != null)
-            {
-                price = Math.Sqrt(Math.Pow(postoffices[postoffice_number_receiver].Location.Item1 - postoffices[postoffice_number_sender].Location.Item1, 2) + Math.Pow(postoffices[postoffice_number_receiver].Location.Item2 - postoffices[postoffice_number_sender].Location.Item2, 2) + Math.Pow(postoffices[postoffice_number_receiver].Location.Item3 - postoffices[postoffice_number_sender].Location.Item3, 2)); 
-            }
+                if (postoffices[postoffice_number_sender] != null && postoffices[postoffice_number_receiver] != null)
+                {
+                    price = Math.Sqrt(Math.Pow(postoffices[postoffice_number_receiver].Location.Item1 - postoffices[postoffice_number_sender].Location.Item1, 2) + Math.Pow(postoffices[postoffice_number_receiver].Location.Item2 - postoffices[postoffice_number_sender].Location.Item2, 2) + Math.Pow(postoffices[postoffice_number_receiver].Location.Item3 - postoffices[postoffice_number_sender].Location.Item3, 2));
+                }
 
-            if (SenderCheckBox.Checked == false && ReceiverCheckBox.Checked == false)
-            {
-                MessageBox.Show("Ви не обрали хто платить за посилку!");
-            }
-            else if (SenderCheckBox.Checked == true && ReceiverCheckBox.Checked == true)
-            {
-                MessageBox.Show("Ви обрали що за посилку платять двоє!");
-            }
-            else if (SenderCheckBox.Checked == true)
-            {
-                _sender = new Sender(age, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, true, price);
-            }
-            else if (ReceiverCheckBox.Checked == true)
-            {
-                _sender = new Sender(age, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, false, price);
-            }
+                if (SenderCheckBox.Checked == false && ReceiverCheckBox.Checked == false)
+                {
+                    MessageBox.Show("Ви не обрали хто платить за посилку!");
+                }
+                else if (SenderCheckBox.Checked == true && ReceiverCheckBox.Checked == true)
+                {
+                    MessageBox.Show("Ви обрали що за посилку платять двоє!");
+                }
+                else if (SenderCheckBox.Checked == true)
+                {
+                    _sender = InitializeSender(age, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, true, price);
+                }
+                else if (ReceiverCheckBox.Checked == true)
+                {
+                    _sender = InitializeSender(age, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, false, price);
+                }
 
-            if (_sender != null)
+                if (_sender != null)
+                {
+                    ParcelInfo.Text = "Ваше відправлення: " + _sender.GetInfo();
+                    postoffices[postoffice_number_receiver].ChangeTotalCapacity(capacity);
+                }
+            }
+            catch(IndexOutOfRangeException exp)
             {
-                ParcelInfo.Text = "Ваше відправлення: " + _sender.GetInfo();
-                postoffices[postoffice_number_receiver].ChangeTotalCapacity(capacity);
+                MessageBox.Show($"Exception in:{exp.StackTrace}");
             }
         }
 

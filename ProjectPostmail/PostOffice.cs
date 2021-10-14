@@ -13,8 +13,15 @@ namespace ProjectPostmail
 
         public PostOffice(double department, (double, double, double) location, double id, string name, double capacity) : base(id, name, capacity)
         {
-            _department = department;
-            _location = location;
+            if (department < 0)
+            {
+                throw new DepartmentException("Department number is less or equal 0", department);
+            }
+            else
+            {
+                _department = department;
+            }
+            Location = location;
         }
 
         public override string GetInfo()

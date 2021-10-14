@@ -15,9 +15,16 @@ namespace ProjectPostmail
 
         protected Person(int age, string name, string surname, double id)
         {
-            _age = age;
-            _name = name;
-            _surname = surname;
+            if (age <= 0)
+            {
+                throw new AgeException("Age is less or equal 0", age);
+            }
+            else
+            {
+                Age = age;
+            }
+            Name = name;
+            Surname = surname;
             _id = id;
         }
 
