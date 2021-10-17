@@ -8,16 +8,16 @@ namespace ProjectPostmail
 {
     abstract class Person
     {
-        protected int _age;
+        protected DateTime _age;
         protected string _name;
         protected string _surname;
         protected readonly double _id;
 
-        protected Person(int age, string name, string surname, double id)
+        protected Person(DateTime age, string name, string surname, double id)
         {
-            if (age <= 0)
+            if (age.ToString("d") == DateTime.Today.ToString("d"))
             {
-                throw new AgeException("Age is less or equal 0", age);
+                throw new AgeException("Your date of birth can`t be today", DateTime.Today.ToString("d"));
             }
             else
             {
@@ -30,10 +30,10 @@ namespace ProjectPostmail
 
         public virtual string GetInfo()
         {
-            return $"Age: {_age}, Name: {_name}, Surname: {_surname}, ID: {_id} ";
+            return $"Age: {_age.ToString("d")}, Name: {_name}, Surname: {_surname}, ID: {_id} ";
         }
 
-        public int Age
+        public DateTime Age
         {
             get
             {
@@ -79,8 +79,8 @@ namespace ProjectPostmail
 
         public bool SetStringAge(string age)
         {
-            int number;
-            bool check = int.TryParse(age, out number);
+            DateTime number;
+            bool check = DateTime.TryParse(age, out number);
 
             if(check == true)
             {

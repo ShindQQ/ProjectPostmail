@@ -13,7 +13,7 @@ namespace ProjectPostmail
         private readonly int _postoffice_number_sender;
         private readonly double _price;
 
-        public Receiver(int age, string name, string surname, double id, double sender_id, int postoffice_number_receiver, int postoffice_number_sender, double price) : base(age, name, surname, id)
+        public Receiver(DateTime age, string name, string surname, double id, double sender_id, int postoffice_number_receiver, int postoffice_number_sender, double price) : base(age, name, surname, id)
         {
             _sender_id = sender_id;
 

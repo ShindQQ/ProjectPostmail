@@ -8,14 +8,14 @@ namespace ProjectPostmail
 {
     class AgeException : Exception
     {
-        public int Value { get; }
+        public string Value { get; }
 
-        public AgeException(string message, int value) : base(message)
+        public AgeException(string message, string value) : base(message)
         {
             Value = value;
         }
 
-        public AgeException(string message, Exception InnerException, int value) : base(message, InnerException)
+        public AgeException(string message, Exception InnerException, string value) : base(message, InnerException)
         {
             Value = value;
         }

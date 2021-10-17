@@ -14,7 +14,6 @@ namespace ProjectPostmail
     public partial class MainForm : Form
     {
         Sender _sender;
-        int age = default(int);
         int postoffice_number_sender = default(int);
         int postoffice_number_receiver = default(int);
         double sender_id = default(double);
@@ -26,7 +25,7 @@ namespace ProjectPostmail
 
         IFormatProvider formatter = new NumberFormatInfo { NumberDecimalSeparator = "." };
 
-        private Sender InitializeSender(int age, string name, string surname, double sender_id, double receiver_id, int postoffice_number_sender, int postoffice_number_receiver, double capacity, bool payment, double price)
+        private Sender InitializeSender(DateTime age, string name, string surname, double sender_id, double receiver_id, int postoffice_number_sender, int postoffice_number_receiver, double capacity, bool payment, double price)
         {
             try
             {
@@ -54,14 +53,9 @@ namespace ProjectPostmail
 
         }
 
-        private void AgeBox_TextChanged(object sender, EventArgs e)
+        private void AgeTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            bool check = int.TryParse(AgeBox.Text, out age);
 
-            if (!check)
-            {
-                MessageBox.Show("Mistake with data");
-            }
         }
 
         private void NameBox_TextChanged(object sender, EventArgs e)
@@ -156,8 +150,25 @@ namespace ProjectPostmail
         {
             try
             {
-                postoffices[postoffice_number_sender] = postoffices[postoffice_number_sender] ?? new PostOffice(postoffice_number_sender, ((new Random()).NextDouble(), (new Random()).NextDouble(), (new Random()).NextDouble()), (new Random()).NextDouble(), PostOfficeSenderName.Text, 0);
-                postoffices[postoffice_number_receiver] = postoffices[postoffice_number_receiver] ?? new PostOffice(postoffice_number_receiver, ((new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1), (new Random()).NextDouble(), PostOfficeReceiverName.Text, 0);
+                try
+                {
+                    postoffices[postoffice_number_sender] = postoffices[postoffice_number_sender] ?? new PostOffice(postoffice_number_sender, ((new Random()).NextDouble(), (new Random()).NextDouble(), (new Random()).NextDouble()), (new Random()).NextDouble(), PostOfficeSenderName.Text, 0);
+                }
+                catch (PostofficeNumberException exp)
+                {
+                    MessageBox.Show($"{exp.Message}, Value: {exp.Value}");
+                    postoffices[postoffice_number_sender] = null;
+                }
+
+                try
+                {
+                    postoffices[postoffice_number_receiver] = postoffices[postoffice_number_receiver] ?? new PostOffice(postoffice_number_receiver, ((new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1), (new Random()).NextDouble(), PostOfficeReceiverName.Text, 0);
+                }
+                catch (PostofficeNumberException exp)
+                {
+                    MessageBox.Show($"{exp.Message}, Value: {exp.Value}");
+                    postoffices[postoffice_number_receiver] = null;
+                }
 
                 if (postoffices[postoffice_number_sender] != null && postoffices[postoffice_number_receiver] != null)
                 {
@@ -174,11 +185,11 @@ namespace ProjectPostmail
                 }
                 else if (SenderCheckBox.Checked == true)
                 {
-                    _sender = InitializeSender(age, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, true, price);
+                    _sender = InitializeSender(AgeTimePicker.Value, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, true, price);
                 }
                 else if (ReceiverCheckBox.Checked == true)
                 {
-                    _sender = InitializeSender(age, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, false, price);
+                    _sender = InitializeSender(AgeTimePicker.Value, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, false, price);
                 }
 
                 if (_sender != null)

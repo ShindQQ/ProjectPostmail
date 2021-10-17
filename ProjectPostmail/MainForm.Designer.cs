@@ -42,11 +42,11 @@ namespace ProjectPostmail
             this.ReceiverIDBox = new System.Windows.Forms.TextBox();
             this.SenderIDBox = new System.Windows.Forms.TextBox();
             this.CreateParcel = new System.Windows.Forms.Button();
-            this.AgeBox = new System.Windows.Forms.TextBox();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.SurnameBox = new System.Windows.Forms.TextBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ParcelInfo = new System.Windows.Forms.Label();
+            this.AgeTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SendParcelBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,7 @@ namespace ProjectPostmail
             // SendParcelBox
             // 
             this.SendParcelBox.BackColor = System.Drawing.SystemColors.Menu;
+            this.SendParcelBox.Controls.Add(this.AgeTimePicker);
             this.SendParcelBox.Controls.Add(this.ParcelCapacity);
             this.SendParcelBox.Controls.Add(this.PostOfficeReceiverName);
             this.SendParcelBox.Controls.Add(this.PostofficeNumberReceiverBox);
@@ -65,7 +66,6 @@ namespace ProjectPostmail
             this.SendParcelBox.Controls.Add(this.ReceiverIDBox);
             this.SendParcelBox.Controls.Add(this.SenderIDBox);
             this.SendParcelBox.Controls.Add(this.CreateParcel);
-            this.SendParcelBox.Controls.Add(this.AgeBox);
             this.SendParcelBox.Controls.Add(this.NameBox);
             this.SendParcelBox.Controls.Add(this.SurnameBox);
             this.SendParcelBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -185,15 +185,6 @@ namespace ProjectPostmail
             this.CreateParcel.UseVisualStyleBackColor = true;
             this.CreateParcel.Click += new System.EventHandler(this.CreateParcel_Click);
             // 
-            // AgeBox
-            // 
-            this.AgeBox.Location = new System.Drawing.Point(6, 61);
-            this.AgeBox.Name = "AgeBox";
-            this.AgeBox.Size = new System.Drawing.Size(173, 22);
-            this.AgeBox.TabIndex = 5;
-            this.AgeBox.Text = "Введіть ваш вік";
-            this.AgeBox.TextChanged += new System.EventHandler(this.AgeBox_TextChanged);
-            // 
             // NameBox
             // 
             this.NameBox.Location = new System.Drawing.Point(6, 89);
@@ -221,6 +212,14 @@ namespace ProjectPostmail
             this.ParcelInfo.TabIndex = 14;
             this.ParcelInfo.Text = "Ваше відправлення:";
             this.ParcelInfo.Click += new System.EventHandler(this.ParcelInfo_Click);
+            // 
+            // AgeTimePicker
+            // 
+            this.AgeTimePicker.Location = new System.Drawing.Point(6, 61);
+            this.AgeTimePicker.Name = "AgeTimePicker";
+            this.AgeTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.AgeTimePicker.TabIndex = 17;
+            this.AgeTimePicker.ValueChanged += new System.EventHandler(this.AgeTimePicker_ValueChanged);
             // 
             // MainForm
             // 
@@ -250,7 +249,6 @@ namespace ProjectPostmail
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.TextBox SurnameBox;
-        private System.Windows.Forms.TextBox AgeBox;
         private System.Windows.Forms.Button CreateParcel;
         private System.Windows.Forms.TextBox PostofficeNumberSenderBox;
         private System.Windows.Forms.TextBox ReceiverIDBox;
@@ -263,6 +261,7 @@ namespace ProjectPostmail
         private System.Windows.Forms.TextBox PostOfficeReceiverName;
         private System.Windows.Forms.TextBox PostofficeNumberReceiverBox;
         private System.Windows.Forms.TextBox ParcelCapacity;
+        private System.Windows.Forms.DateTimePicker AgeTimePicker;
     }
 }
 
