@@ -152,7 +152,7 @@ namespace ProjectPostmail
             {
                 try
                 {
-                    postoffices[postoffice_number_sender] = postoffices[postoffice_number_sender] ?? new PostOffice(postoffice_number_sender, ((new Random()).NextDouble(), (new Random()).NextDouble(), (new Random()).NextDouble()), (new Random()).NextDouble(), PostOfficeSenderName.Text, 0);
+                    postoffices[postoffice_number_sender] ??= new PostOffice(postoffice_number_sender, ((new Random()).NextDouble(), (new Random()).NextDouble(), (new Random()).NextDouble()), (new Random()).NextDouble(), PostOfficeSenderName.Text, 0);
                 }
                 catch (PostofficeNumberException exp)
                 {
@@ -162,7 +162,7 @@ namespace ProjectPostmail
 
                 try
                 {
-                    postoffices[postoffice_number_receiver] = postoffices[postoffice_number_receiver] ?? new PostOffice(postoffice_number_receiver, ((new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1), (new Random()).NextDouble(), PostOfficeReceiverName.Text, 0);
+                    postoffices[postoffice_number_receiver] ??= new PostOffice(postoffice_number_receiver, ((new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1, (new Random()).NextDouble() + 1), (new Random()).NextDouble(), PostOfficeReceiverName.Text, 0);
                 }
                 catch (PostofficeNumberException exp)
                 {
