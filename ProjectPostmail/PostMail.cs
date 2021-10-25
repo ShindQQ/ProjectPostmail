@@ -72,7 +72,7 @@ namespace ProjectPostmail
 
         public void ChangeTotalCapacity(double value)
         {
-            if ((_total_capacity - value) < 0)
+            if ((_total_capacity + value) < 0)
             {
                 throw new CapacityException("Total capacity is less than 0", _total_capacity);
             }

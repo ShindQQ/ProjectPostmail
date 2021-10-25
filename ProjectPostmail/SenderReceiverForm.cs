@@ -14,12 +14,15 @@ namespace ProjectPostmail
     public partial class SenderReceiverForm : Form
     {
         Sender _sender;
-        int postoffice_number_sender = default(int);
-        int postoffice_number_receiver = default(int);
-        double sender_id = default(double);
-        double receiver_id = default(double);
-        double capacity = default(double);
-        double price = default(double);
+        int postoffice_number_sender = default;
+        int postoffice_number_receiver = default;
+        double sender_id = default;
+        double receiver_id = default;
+        double capacity = default;
+        double price = default;
+
+        AutoCompleteStringCollection auto_postoffice_number = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection auto_postoffice_name = new AutoCompleteStringCollection();
 
         PostOffice[] postoffices = new PostOffice[20];
 
@@ -36,6 +39,13 @@ namespace ProjectPostmail
                 MessageBox.Show($"{exp.Message}, Value: {exp.Value}");
                 return null;
             }
+        }
+
+        private void AutoComplete(TextBox name, AutoCompleteStringCollection collection)
+        {
+            name.AutoCompleteCustomSource = collection;
+            name.AutoCompleteMode = AutoCompleteMode.Suggest;
+            name.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         public SenderReceiverForm()
@@ -92,11 +102,13 @@ namespace ProjectPostmail
             {
                 MessageBox.Show("Mistake with data");
             }
+
+            AutoComplete(PostofficeNumberSenderBox, auto_postoffice_number);
         }
 
         private void PostOfficeSenderName_TextChanged(object sender, EventArgs e)
         {
-
+            AutoComplete(PostOfficeSenderName, auto_postoffice_name);
         }
 
         private void PostofficeNumberReceiverBox_TextChanged(object sender, EventArgs e)
@@ -105,11 +117,13 @@ namespace ProjectPostmail
             {
                 MessageBox.Show("Mistake with data");
             }
+
+            AutoComplete(PostofficeNumberReceiverBox, auto_postoffice_number);
         }
 
         private void PostOfficeReceiverName_TextChanged(object sender, EventArgs e)
         {
-
+            AutoComplete(PostOfficeReceiverName, auto_postoffice_name);
         }
 
         private void ParcelCapacity_TextChanged(object sender, EventArgs e)
@@ -188,6 +202,11 @@ namespace ProjectPostmail
                 {
                     ParcelInfo.Text = "Ваше відправлення: " + _sender.GetInfo();
                     postoffices[postoffice_number_receiver].ChangeTotalCapacity(capacity);
+
+                    auto_postoffice_number.Add(postoffice_number_sender.ToString());
+                    auto_postoffice_number.Add(postoffice_number_receiver.ToString());
+                    auto_postoffice_name.Add(PostOfficeReceiverName.Text);
+                    auto_postoffice_name.Add(PostOfficeSenderName.Text);
                 }
             }
             catch (IndexOutOfRangeException exp)

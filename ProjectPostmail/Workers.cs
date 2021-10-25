@@ -8,27 +8,27 @@ namespace ProjectPostmail
 {
     class Workers : Person
     {
-        protected string _location_of_work;
+        protected int _postoffice_number;
 
-        public Workers(DateTime age, string name, string surname, double id, string location_of_work) : base(age, name, surname, id)
+        public Workers(DateTime age, string name, string surname, double id, int postoffice_number) : base(age, name, surname, id)
         {
-            _location_of_work = location_of_work;
+            _postoffice_number = postoffice_number;
         }
 
         public override string GetInfo()
         {
-            return base.GetInfo() + $"Location of work: {_location_of_work}";
+            return base.GetInfo() + $"Location of work: {_postoffice_number}";
         }
 
-        public string Location_Of_Work
+        public int Postoffice_Number
         {
             get
             {
-                return _location_of_work;
+                return _postoffice_number;
             }
             set
             {
-                _location_of_work = value;
+                _postoffice_number = value;
             }
         }
     }
