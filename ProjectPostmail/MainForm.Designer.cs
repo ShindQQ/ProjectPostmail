@@ -85,4 +85,3 @@ namespace ProjectPostmail
         private System.Windows.Forms.Button ParcelButton;
     }
 }
-

@@ -29,9 +29,6 @@ namespace ProjectPostmail
         /// </summary>
         private void InitializeComponent()
         {
-            this.FormAccess = new System.Windows.Forms.Label();
-            this.PasswordTextBox = new System.Windows.Forms.TextBox();
-            this.PasswordBox = new System.Windows.Forms.GroupBox();
             this.PostofficeTab = new System.Windows.Forms.TabControl();
             this.EmployeeTab = new System.Windows.Forms.TabPage();
             this.DepartmentEmployerGroupBox = new System.Windows.Forms.GroupBox();
@@ -52,10 +49,10 @@ namespace ProjectPostmail
             this.EmployeeSurnameBox = new System.Windows.Forms.TextBox();
             this.EmployeeNameBox = new System.Windows.Forms.TextBox();
             this.EmployeeIDBox = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.EmployeeDepartmentBox = new System.Windows.Forms.TextBox();
-            this.PasswordBox.SuspendLayout();
+            this.FormAccess = new System.Windows.Forms.Label();
+            this.PasswordBox = new System.Windows.Forms.GroupBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.PostofficeTab.SuspendLayout();
             this.EmployeeTab.SuspendLayout();
             this.DepartmentEmployerGroupBox.SuspendLayout();
@@ -63,38 +60,8 @@ namespace ProjectPostmail
             this.EmployerTab.SuspendLayout();
             this.DepartmentEmployeeGroupBox.SuspendLayout();
             this.EmployeeGroupBox.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.PasswordBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // FormAccess
-            // 
-            this.FormAccess.Location = new System.Drawing.Point(569, 278);
-            this.FormAccess.Name = "FormAccess";
-            this.FormAccess.Size = new System.Drawing.Size(221, 168);
-            this.FormAccess.TabIndex = 0;
-            this.FormAccess.Click += new System.EventHandler(this.FormAccess_Click);
-            // 
-            // PasswordTextBox
-            // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(44, 39);
-            this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.PasswordChar = '*';
-            this.PasswordTextBox.Size = new System.Drawing.Size(113, 22);
-            this.PasswordTextBox.TabIndex = 1;
-            this.PasswordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
-            this.PasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PasswordBox_KeyUp);
-            // 
-            // PasswordBox
-            // 
-            this.PasswordBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PasswordBox.Controls.Add(this.PasswordTextBox);
-            this.PasswordBox.Location = new System.Drawing.Point(497, 260);
-            this.PasswordBox.Name = "PasswordBox";
-            this.PasswordBox.Size = new System.Drawing.Size(200, 100);
-            this.PasswordBox.TabIndex = 4;
-            this.PasswordBox.TabStop = false;
-            this.PasswordBox.Text = "Введіть пароль";
-            this.PasswordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
             // 
             // PostofficeTab
             // 
@@ -125,7 +92,6 @@ namespace ProjectPostmail
             this.DepartmentEmployerGroupBox.Controls.Add(this.EmployerInfo);
             this.DepartmentEmployerGroupBox.Controls.Add(this.EmployerGroupBox);
             this.DepartmentEmployerGroupBox.Controls.Add(this.EmployerButton);
-            this.DepartmentEmployerGroupBox.Controls.Add(this.PasswordBox);
             this.DepartmentEmployerGroupBox.Controls.Add(this.EmployerDepartmentBox);
             this.DepartmentEmployerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DepartmentEmployerGroupBox.Location = new System.Drawing.Point(3, 3);
@@ -148,9 +114,9 @@ namespace ProjectPostmail
             // 
             this.EmployerInfo.BackColor = System.Drawing.Color.Transparent;
             this.EmployerInfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EmployerInfo.Location = new System.Drawing.Point(211, 18);
+            this.EmployerInfo.Location = new System.Drawing.Point(218, 18);
             this.EmployerInfo.Name = "EmployerInfo";
-            this.EmployerInfo.Size = new System.Drawing.Size(572, 394);
+            this.EmployerInfo.Size = new System.Drawing.Size(565, 394);
             this.EmployerInfo.TabIndex = 19;
             this.EmployerInfo.Text = "Інформація про Вас:";
             this.EmployerInfo.Click += new System.EventHandler(this.EmployerInfo_Click);
@@ -233,7 +199,6 @@ namespace ProjectPostmail
             this.DepartmentEmployeeGroupBox.Controls.Add(this.EmployeeInfo);
             this.DepartmentEmployeeGroupBox.Controls.Add(this.EmployeeButton);
             this.DepartmentEmployeeGroupBox.Controls.Add(this.EmployeeGroupBox);
-            this.DepartmentEmployeeGroupBox.Controls.Add(this.groupBox2);
             this.DepartmentEmployeeGroupBox.Controls.Add(this.EmployeeDepartmentBox);
             this.DepartmentEmployeeGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DepartmentEmployeeGroupBox.Location = new System.Drawing.Point(3, 3);
@@ -256,9 +221,9 @@ namespace ProjectPostmail
             // 
             this.EmployeeInfo.BackColor = System.Drawing.Color.Transparent;
             this.EmployeeInfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EmployeeInfo.Location = new System.Drawing.Point(211, 18);
+            this.EmployeeInfo.Location = new System.Drawing.Point(215, 18);
             this.EmployeeInfo.Name = "EmployeeInfo";
-            this.EmployeeInfo.Size = new System.Drawing.Size(572, 394);
+            this.EmployeeInfo.Size = new System.Drawing.Size(568, 394);
             this.EmployeeInfo.TabIndex = 20;
             this.EmployeeInfo.Text = "Інформація про Вас:";
             this.EmployeeInfo.Click += new System.EventHandler(this.EmployeeInfo_Click);
@@ -314,25 +279,6 @@ namespace ProjectPostmail
             this.EmployeeIDBox.Text = "Введіть ваш ID";
             this.EmployeeIDBox.TextChanged += new System.EventHandler(this.EmployeeIDBox_TextChanged);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Location = new System.Drawing.Point(497, 260);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 100);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Введіть пароль";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(44, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(113, 22);
-            this.textBox1.TabIndex = 1;
-            // 
             // EmployeeDepartmentBox
             // 
             this.EmployeeDepartmentBox.Location = new System.Drawing.Point(3, 18);
@@ -342,6 +288,38 @@ namespace ProjectPostmail
             this.EmployeeDepartmentBox.Text = "Введіть номер відділення";
             this.EmployeeDepartmentBox.TextChanged += new System.EventHandler(this.EmployeeDepartmentBox_TextChanged);
             // 
+            // FormAccess
+            // 
+            this.FormAccess.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FormAccess.Location = new System.Drawing.Point(0, 0);
+            this.FormAccess.Name = "FormAccess";
+            this.FormAccess.Size = new System.Drawing.Size(800, 450);
+            this.FormAccess.TabIndex = 6;
+            this.FormAccess.Text = "   ";
+            this.FormAccess.Click += new System.EventHandler(this.FormAccess_Click);
+            // 
+            // PasswordBox
+            // 
+            this.PasswordBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PasswordBox.Controls.Add(this.PasswordTextBox);
+            this.PasswordBox.Location = new System.Drawing.Point(300, 175);
+            this.PasswordBox.Name = "PasswordBox";
+            this.PasswordBox.Size = new System.Drawing.Size(200, 100);
+            this.PasswordBox.TabIndex = 7;
+            this.PasswordBox.TabStop = false;
+            this.PasswordBox.Text = "Введіть пароль";
+            this.PasswordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
+            // 
+            // PasswordTextBox
+            // 
+            this.PasswordTextBox.Location = new System.Drawing.Point(44, 39);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.PasswordChar = '*';
+            this.PasswordTextBox.Size = new System.Drawing.Size(113, 22);
+            this.PasswordTextBox.TabIndex = 1;
+            this.PasswordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
+            this.PasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyUp);
+            // 
             // AdministrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -349,14 +327,13 @@ namespace ProjectPostmail
             this.BackgroundImage = global::ProjectPostmail.Properties.Resources.banner;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PasswordBox);
             this.Controls.Add(this.FormAccess);
             this.Controls.Add(this.PostofficeTab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdministrationForm";
             this.Text = "AdministrationForm";
             this.Load += new System.EventHandler(this.AdministrationForm_Load);
-            this.PasswordBox.ResumeLayout(false);
-            this.PasswordBox.PerformLayout();
             this.PostofficeTab.ResumeLayout(false);
             this.EmployeeTab.ResumeLayout(false);
             this.DepartmentEmployerGroupBox.ResumeLayout(false);
@@ -368,25 +345,19 @@ namespace ProjectPostmail
             this.DepartmentEmployeeGroupBox.PerformLayout();
             this.EmployeeGroupBox.ResumeLayout(false);
             this.EmployeeGroupBox.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.PasswordBox.ResumeLayout(false);
+            this.PasswordBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label FormAccess;
-        private System.Windows.Forms.TextBox PasswordTextBox;
-        private System.Windows.Forms.GroupBox PasswordBox;
         private System.Windows.Forms.TabControl PostofficeTab;
         private System.Windows.Forms.TabPage EmployeeTab;
         private System.Windows.Forms.GroupBox DepartmentEmployerGroupBox;
         private System.Windows.Forms.TextBox EmployerDepartmentBox;
         private System.Windows.Forms.TabPage EmployerTab;
         private System.Windows.Forms.GroupBox DepartmentEmployeeGroupBox;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox EmployeeDepartmentBox;
         private System.Windows.Forms.TextBox EmployerIDBox;
         private System.Windows.Forms.TextBox EmployerNameBox;
@@ -402,5 +373,8 @@ namespace ProjectPostmail
         private System.Windows.Forms.Label EmployeeInfo;
         private System.Windows.Forms.DateTimePicker EmployerData;
         private System.Windows.Forms.DateTimePicker EmployeeData;
+        private System.Windows.Forms.Label FormAccess;
+        private System.Windows.Forms.GroupBox PasswordBox;
+        private System.Windows.Forms.TextBox PasswordTextBox;
     }
 }

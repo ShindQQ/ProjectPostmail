@@ -17,7 +17,7 @@ namespace ProjectPostmail
 
         public override string GetInfo()
         {
-            return base.GetInfo() + $"Location of work: {_postoffice_number}";
+            return base.GetInfo() + $"Location of work: {_postoffice_number}; ";
         }
 
         public int Postoffice_Number

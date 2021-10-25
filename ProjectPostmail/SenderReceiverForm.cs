@@ -13,7 +13,7 @@ namespace ProjectPostmail
 {
     public partial class SenderReceiverForm : Form
     {
-        Sender _sender;
+        Sender sender;
         int postoffice_number_sender = default;
         int postoffice_number_receiver = default;
         double sender_id = default;
@@ -146,9 +146,9 @@ namespace ProjectPostmail
 
         private void ParcelInfo_Click(object sender, EventArgs e)
         {
-            if (_sender != null)
+            if (this.sender != null)
             {
-                ParcelInfo.Text = "Ваше відправлення: " + _sender.GetInfo();
+                ParcelInfo.Text = "Ваше відправлення: " + this.sender.GetInfo();
             }
         }
 
@@ -191,16 +191,16 @@ namespace ProjectPostmail
                 }
                 else if (SenderCheckBox.Checked == true)
                 {
-                    _sender = InitializeSender(AgeTimePicker.Value, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, true, price);
+                    this.sender = InitializeSender(AgeTimePicker.Value, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, true, price);
                 }
                 else if (ReceiverCheckBox.Checked == true)
                 {
-                    _sender = InitializeSender(AgeTimePicker.Value, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, false, price);
+                    this.sender = InitializeSender(AgeTimePicker.Value, NameBox.Text, SurnameBox.Text, sender_id, receiver_id, postoffice_number_sender, postoffice_number_receiver, capacity, false, price);
                 }
 
-                if (_sender != null)
+                if (this.sender != null)
                 {
-                    ParcelInfo.Text = "Ваше відправлення: " + _sender.GetInfo();
+                    ParcelInfo.Text = "Ваше відправлення: " + this.sender.GetInfo();
                     postoffices[postoffice_number_receiver].ChangeTotalCapacity(capacity);
 
                     auto_postoffice_number.Add(postoffice_number_sender.ToString());

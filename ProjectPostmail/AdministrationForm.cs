@@ -19,6 +19,8 @@ namespace ProjectPostmail
         int employer_postoffice_number = default;
         int employee_postoffice_number = default;
         bool check_list = false;
+        Employer employer = default;
+        Employee employee = default;
 
         List<Employer> employers = new List<Employer>();
         List<Employee> employees = new List<Employee>();
@@ -54,7 +56,7 @@ namespace ProjectPostmail
 
         }
 
-        private void PasswordBox_KeyUp(object sender, KeyEventArgs e)
+        private void PasswordTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -74,7 +76,7 @@ namespace ProjectPostmail
 
         private void PostofficeNumberBox_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void PostofficeNumberBox_KeyUp(object sender, KeyEventArgs e)
@@ -133,24 +135,52 @@ namespace ProjectPostmail
 
         private void EmployerButton_Click(object sender, EventArgs e)
         {
-            try
+            foreach (Employer emp in employers)
             {
-                foreach (Employer emp in employers)
+                if (emp.Name == EmployerNameBox.Text && emp.Surname == EmployerSurnameBox.Text && emp.ID == employer_id)
                 {
-                    if (emp.Postoffice_Number == employer_postoffice_number)
-                    {
-                        check_list = true;
-                        break;
-                    }
+                    EmployerInfo.Text = "Інформація про Вас:\n" + emp.GetInfo();
                 }
-                if (check_list != true)
+
+                if (emp.Postoffice_Number == employer_postoffice_number)
                 {
-                    employers.Add(new Employer(EmployerData.Value, EmployerNameBox.Text, EmployerSurnameBox.Text, employer_id, employer_postoffice_number, 0));
+                    check_list = true;
+                    break;
                 }
             }
-            catch (WorkersAmmountException exp)
+
+            if (check_list != true)
             {
-                MessageBox.Show($"{exp.Message}, Value: {exp.Value}");
+                try
+                {
+                    try
+                    {
+                        employer = (new Employer(EmployerData.Value, EmployerNameBox.Text, EmployerSurnameBox.Text, employer_id, employer_postoffice_number, 0));
+                    }
+                    catch (WorkersAmmountException exp)
+                    {
+                        MessageBox.Show($"{exp.Message}, Value: {exp.Value}");
+                    }
+                }
+                catch (AgeException exp)
+                {
+                    MessageBox.Show($"{exp.Message}, Value: {exp.Value}");
+                }
+
+                if (employer != null)
+                {
+                    employers.Add(employer);
+
+                    foreach (Employee emp in employees)
+                    {
+                        if (employer.Postoffice_Number == emp.Postoffice_Number)
+                        {
+                            employer.Ammount_Of_Workers++;
+                        }
+                    }
+
+                    EmployerInfo.Text = "Інформація про Вас:\n" + employer.GetInfo();
+                }
             }
         }
 
@@ -166,7 +196,7 @@ namespace ProjectPostmail
 
         private void DepartmentEmployeeGroupBox_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void PasswordBox_Enter(object sender, EventArgs e)
@@ -213,15 +243,42 @@ namespace ProjectPostmail
         {
             foreach (Employee emp in employees)
             {
-                if (emp.Postoffice_Number == employee_postoffice_number)
+                if (emp.Name == EmployeeNameBox.Text && emp.Surname == EmployeeSurnameBox.Text && emp.ID == employee_id)
+                {
+                    EmployeeInfo.Text = "Інформація про Вас:\n" + emp.GetInfo();
+                }
+
+                if (emp.ID == employee_id)
                 {
                     check_list = true;
                     break;
                 }
             }
+
             if (check_list != true)
             {
-                employees.Add(new Employee(EmployeeData.Value, EmployeeNameBox.Text, EmployeeSurnameBox.Text, employee_id, employee_postoffice_number));
+                try
+                {
+                    employee = new Employee(EmployeeData.Value, EmployeeNameBox.Text, EmployeeSurnameBox.Text, employee_id, employee_postoffice_number);
+                }
+                catch (AgeException exp)
+                {
+                    MessageBox.Show($"{exp.Message}, Value: {exp.Value}");
+                }
+
+                if (employee != null)
+                {
+                    employees.Add(employee);
+                    foreach (Employer emp in employers)
+                    {
+                        if (employee.Postoffice_Number == emp.Postoffice_Number)
+                        {
+                            emp.Ammount_Of_Workers++;
+                        }
+                    }
+
+                    EmployeeInfo.Text = "Інформація про Вас:\n" + employee.GetInfo();
+                }
             }
         }
 
