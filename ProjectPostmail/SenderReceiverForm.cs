@@ -148,7 +148,9 @@ namespace ProjectPostmail
         {
             if (this.sender != null)
             {
-                ParcelInfo.Text = "Ваше відправлення: " + this.sender.GetInfo();
+                this.sender.Printer = new PersonShowNameSurnameInfo();
+
+                ParcelInfo.Text = "Ваше відправлення: " + this.sender.Print();
             }
         }
 

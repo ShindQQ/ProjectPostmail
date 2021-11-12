@@ -38,6 +38,18 @@ namespace ProjectPostmail
             _price = price;
         }
 
+        public override string Print()
+        {
+            if (Printer != null)
+            {
+                return Printer.Print(this);
+            }
+            else
+            {
+                return GetInfo();
+            }
+        }
+
         public override string GetInfo()
         {
             if (_payment == true)

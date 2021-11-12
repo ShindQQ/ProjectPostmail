@@ -15,6 +15,18 @@ namespace ProjectPostmail
             _postoffice_number = postoffice_number;
         }
 
+        public override string Print()
+        {
+            if (Printer != null)
+            {
+                return Printer.Print(this);
+            }
+            else
+            {
+                return GetInfo();
+            }
+        }
+
         public override string GetInfo()
         {
             return base.GetInfo() + $"Location of work: {_postoffice_number}; ";

@@ -13,6 +13,8 @@ namespace ProjectPostmail
         protected string _surname;
         protected readonly double _id;
 
+        public IReturnable Printer { get; set; }
+
         protected Person(DateTime age, string name, string surname, double id)
         {
             if (age.ToString("d") == DateTime.Today.ToString("d"))
@@ -26,6 +28,20 @@ namespace ProjectPostmail
             Name = name;
             Surname = surname;
             _id = id;
+
+            Printer = null;
+        }
+
+        public virtual string Print()
+        {
+            if (Printer != null)
+            {
+                return Printer.Print(this);
+            }
+            else
+            {
+                return GetInfo();
+            }
         }
 
         public virtual string GetInfo()

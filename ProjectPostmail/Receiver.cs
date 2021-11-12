@@ -34,6 +34,18 @@ namespace ProjectPostmail
             _price = price;
         }
 
+        public override string Print()
+        {
+            if (Printer != null)
+            {
+                return Printer.Print(this);
+            }
+            else
+            {
+                return GetInfo();
+            }
+        }
+
         public override string GetInfo()
         {
             return base.GetInfo() + $"Sender id: {_sender_id}, Postoffice number: {_postoffice_number_receiver}";

@@ -181,6 +181,8 @@ namespace ProjectPostmail
 
                     EmployerInfo.Text = "Інформація про Вас:\n" + employer.GetInfo();
                 }
+
+                employers.Sort();
             }
         }
 
@@ -279,6 +281,8 @@ namespace ProjectPostmail
 
                     EmployeeInfo.Text = "Інформація про Вас:\n" + employee.GetInfo();
                 }
+
+                employees.Sort();
             }
         }
 

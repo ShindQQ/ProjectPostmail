@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectPostmail
 {
-    class Employer : Workers
+    class Employer : Workers, IComparable
     {
         private int _ammount_of_workers;
 
@@ -19,6 +19,18 @@ namespace ProjectPostmail
             else
             {
                 _ammount_of_workers = ammount_of_workers;
+            }
+        }
+
+        public override string Print()
+        {
+            if (Printer != null)
+            {
+                return Printer.Print(this);
+            }
+            else
+            {
+                return GetInfo();
             }
         }
 
@@ -37,6 +49,11 @@ namespace ProjectPostmail
             {
                 _ammount_of_workers = value;
             }
+        }
+
+        public int CompareTo(object obj)
+        {
+            return Postoffice_Number.CompareTo(((Employer)obj).Postoffice_Number);
         }
     }
 }
