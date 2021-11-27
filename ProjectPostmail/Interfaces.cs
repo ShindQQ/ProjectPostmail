@@ -11,9 +11,20 @@ namespace ProjectPostmail
         string Print(object obj);
     }
 
-    class PersonShowNameSurnameInfo : IReturnable
+    interface IPrintable
     {
-        public string Print(object obj)
+        string Print(object obj);
+    }
+
+    class PersonShowNameSurnameInfo : IReturnable, IPrintable
+    {
+        string IReturnable.Print(object obj)
+        {
+            Person person = obj as Person;
+            return $"Name: {person.Name}, Surname: {person.Surname}";
+        }
+
+        string IPrintable.Print(object obj)
         {
             Person person = obj as Person;
             return $"Name: {person.Name}, Surname: {person.Surname}";

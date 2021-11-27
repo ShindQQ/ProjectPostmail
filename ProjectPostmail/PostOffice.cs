@@ -8,6 +8,9 @@ namespace ProjectPostmail
 {
     class PostOffice : PostMail
     {
+        public delegate void DistanceShow(string message);
+        public event DistanceShow Notify;
+
         private readonly double _department;
         private (double, double, double) _location;
 
@@ -26,6 +29,7 @@ namespace ProjectPostmail
 
         public override string GetInfo()
         {
+            Notify?.Invoke((Math.Sqrt(Math.Pow(_location.Item1, 2) + Math.Pow(_location.Item2, 2) + Math.Pow(_location.Item3, 2))).ToString());
             return base.GetInfo() + $"Department: {_department}, Location: {_location}";
         }
 

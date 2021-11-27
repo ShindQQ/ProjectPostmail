@@ -11,8 +11,13 @@ using System.Globalization;
 
 namespace ProjectPostmail
 {
+    delegate double Distance(PostOffice[] postoffices, int number_receiver, int number_sender);
+    
+
     public partial class SenderReceiverForm : Form
     {
+
+
         Sender sender;
         int postoffice_number_sender = default;
         int postoffice_number_receiver = default;
@@ -28,6 +33,18 @@ namespace ProjectPostmail
 
         IFormatProvider formatter = new NumberFormatInfo { NumberDecimalSeparator = "." };
 
+        Distance distance = delegate (PostOffice[] postoffices, int number_receiver, int number_sender)
+        {
+            return Math.Sqrt(Math.Pow(postoffices[number_receiver].Location.Item1 - postoffices[number_sender].Location.Item1, 2) + Math.Pow(postoffices[number_receiver].Location.Item2 - postoffices[number_sender].Location.Item2, 2) + Math.Pow(postoffices[number_receiver].Location.Item3 - postoffices[number_sender].Location.Item3, 2));
+        };
+
+        Distance distance1 = (PostOffice[] postoffices, int number_receiver, int number_sender) => Math.Sqrt(Math.Pow(postoffices[number_receiver].Location.Item1 - postoffices[number_sender].Location.Item1, 2) + Math.Pow(postoffices[number_receiver].Location.Item2 - postoffices[number_sender].Location.Item2, 2) + Math.Pow(postoffices[number_receiver].Location.Item3 - postoffices[number_sender].Location.Item3, 2));
+
+        private void DisplayMessage(string message)
+        {
+            MessageBox.Show(message);
+        }
+
         private Sender InitializeSender(DateTime age, string name, string surname, double sender_id, double receiver_id, int postoffice_number_sender, int postoffice_number_receiver, double capacity, bool payment, double price)
         {
             try
@@ -39,6 +56,11 @@ namespace ProjectPostmail
                 MessageBox.Show($"{exp.Message}, Value: {exp.Value}");
                 return null;
             }
+        }
+
+        private double DistanceFunc(PostOffice[] postoffices, int postoffice_number_receiver, int postoffice_number_sender)
+        {
+            return Math.Sqrt(Math.Pow(postoffices[postoffice_number_receiver].Location.Item1 - postoffices[postoffice_number_sender].Location.Item1, 2) + Math.Pow(postoffices[postoffice_number_receiver].Location.Item2 - postoffices[postoffice_number_sender].Location.Item2, 2) + Math.Pow(postoffices[postoffice_number_receiver].Location.Item3 - postoffices[postoffice_number_sender].Location.Item3, 2)); ;
         }
 
         private void AutoComplete(TextBox name, AutoCompleteStringCollection collection)
@@ -180,7 +202,11 @@ namespace ProjectPostmail
 
                 if (postoffices[postoffice_number_sender] != null && postoffices[postoffice_number_receiver] != null)
                 {
-                    price = Math.Sqrt(Math.Pow(postoffices[postoffice_number_receiver].Location.Item1 - postoffices[postoffice_number_sender].Location.Item1, 2) + Math.Pow(postoffices[postoffice_number_receiver].Location.Item2 - postoffices[postoffice_number_sender].Location.Item2, 2) + Math.Pow(postoffices[postoffice_number_receiver].Location.Item3 - postoffices[postoffice_number_sender].Location.Item3, 2));
+                    Distance del = DistanceFunc;
+
+                    price = del(postoffices, postoffice_number_receiver, postoffice_number_sender);
+
+                    // price =  distance(postoffices, postoffice_number_receiver, postoffice_number_sender);
                 }
 
                 if (SenderCheckBox.Checked == false && ReceiverCheckBox.Checked == false)
@@ -204,6 +230,7 @@ namespace ProjectPostmail
                 {
                     ParcelInfo.Text = "Ваше відправлення: " + this.sender.GetInfo();
                     postoffices[postoffice_number_receiver].ChangeTotalCapacity(capacity);
+                    postoffices[postoffice_number_receiver].Notify += DisplayMessage;
 
                     auto_postoffice_number.Add(postoffice_number_sender.ToString());
                     auto_postoffice_number.Add(postoffice_number_receiver.ToString());
