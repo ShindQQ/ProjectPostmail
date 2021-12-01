@@ -69,18 +69,20 @@ namespace ProjectPostmail
             this.PostofficeTab.Controls.Add(this.EmployerTab);
             this.PostofficeTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PostofficeTab.Location = new System.Drawing.Point(0, 0);
+            this.PostofficeTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PostofficeTab.Name = "PostofficeTab";
             this.PostofficeTab.SelectedIndex = 0;
-            this.PostofficeTab.Size = new System.Drawing.Size(800, 450);
+            this.PostofficeTab.Size = new System.Drawing.Size(900, 562);
             this.PostofficeTab.TabIndex = 5;
             // 
             // EmployeeTab
             // 
             this.EmployeeTab.Controls.Add(this.DepartmentEmployerGroupBox);
-            this.EmployeeTab.Location = new System.Drawing.Point(4, 25);
+            this.EmployeeTab.Location = new System.Drawing.Point(4, 29);
+            this.EmployeeTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployeeTab.Name = "EmployeeTab";
-            this.EmployeeTab.Padding = new System.Windows.Forms.Padding(3);
-            this.EmployeeTab.Size = new System.Drawing.Size(792, 421);
+            this.EmployeeTab.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.EmployeeTab.Size = new System.Drawing.Size(892, 529);
             this.EmployeeTab.TabIndex = 0;
             this.EmployeeTab.Text = "Роботодавець";
             this.EmployeeTab.UseVisualStyleBackColor = true;
@@ -94,9 +96,11 @@ namespace ProjectPostmail
             this.DepartmentEmployerGroupBox.Controls.Add(this.EmployerButton);
             this.DepartmentEmployerGroupBox.Controls.Add(this.EmployerDepartmentBox);
             this.DepartmentEmployerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DepartmentEmployerGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.DepartmentEmployerGroupBox.Location = new System.Drawing.Point(3, 4);
+            this.DepartmentEmployerGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DepartmentEmployerGroupBox.Name = "DepartmentEmployerGroupBox";
-            this.DepartmentEmployerGroupBox.Size = new System.Drawing.Size(786, 415);
+            this.DepartmentEmployerGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DepartmentEmployerGroupBox.Size = new System.Drawing.Size(886, 521);
             this.DepartmentEmployerGroupBox.TabIndex = 4;
             this.DepartmentEmployerGroupBox.TabStop = false;
             this.DepartmentEmployerGroupBox.Text = "Відділення № ";
@@ -104,9 +108,10 @@ namespace ProjectPostmail
             // 
             // EmployerData
             // 
-            this.EmployerData.Location = new System.Drawing.Point(3, 46);
+            this.EmployerData.Location = new System.Drawing.Point(3, 58);
+            this.EmployerData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployerData.Name = "EmployerData";
-            this.EmployerData.Size = new System.Drawing.Size(175, 22);
+            this.EmployerData.Size = new System.Drawing.Size(196, 26);
             this.EmployerData.TabIndex = 22;
             this.EmployerData.ValueChanged += new System.EventHandler(this.EmployerData_ValueChanged);
             // 
@@ -114,9 +119,9 @@ namespace ProjectPostmail
             // 
             this.EmployerInfo.BackColor = System.Drawing.Color.Transparent;
             this.EmployerInfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EmployerInfo.Location = new System.Drawing.Point(218, 18);
+            this.EmployerInfo.Location = new System.Drawing.Point(247, 23);
             this.EmployerInfo.Name = "EmployerInfo";
-            this.EmployerInfo.Size = new System.Drawing.Size(565, 394);
+            this.EmployerInfo.Size = new System.Drawing.Size(636, 494);
             this.EmployerInfo.TabIndex = 19;
             this.EmployerInfo.Text = "Інформація про Вас:";
             this.EmployerInfo.Click += new System.EventHandler(this.EmployerInfo_Click);
@@ -126,9 +131,11 @@ namespace ProjectPostmail
             this.EmployerGroupBox.Controls.Add(this.EmployerSurnameBox);
             this.EmployerGroupBox.Controls.Add(this.EmployerNameBox);
             this.EmployerGroupBox.Controls.Add(this.EmployerIDBox);
-            this.EmployerGroupBox.Location = new System.Drawing.Point(3, 74);
+            this.EmployerGroupBox.Location = new System.Drawing.Point(3, 92);
+            this.EmployerGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployerGroupBox.Name = "EmployerGroupBox";
-            this.EmployerGroupBox.Size = new System.Drawing.Size(193, 107);
+            this.EmployerGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.EmployerGroupBox.Size = new System.Drawing.Size(217, 134);
             this.EmployerGroupBox.TabIndex = 15;
             this.EmployerGroupBox.TabStop = false;
             this.EmployerGroupBox.Text = "Заповніть особисті дані";
@@ -136,27 +143,30 @@ namespace ProjectPostmail
             // 
             // EmployerSurnameBox
             // 
-            this.EmployerSurnameBox.Location = new System.Drawing.Point(6, 46);
+            this.EmployerSurnameBox.Location = new System.Drawing.Point(7, 58);
+            this.EmployerSurnameBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployerSurnameBox.Name = "EmployerSurnameBox";
-            this.EmployerSurnameBox.Size = new System.Drawing.Size(173, 22);
+            this.EmployerSurnameBox.Size = new System.Drawing.Size(194, 26);
             this.EmployerSurnameBox.TabIndex = 10;
             this.EmployerSurnameBox.Text = "Введіть ваше прізвище";
             this.EmployerSurnameBox.TextChanged += new System.EventHandler(this.EmployerSurnameBox_TextChanged);
             // 
             // EmployerNameBox
             // 
-            this.EmployerNameBox.Location = new System.Drawing.Point(6, 18);
+            this.EmployerNameBox.Location = new System.Drawing.Point(7, 22);
+            this.EmployerNameBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployerNameBox.Name = "EmployerNameBox";
-            this.EmployerNameBox.Size = new System.Drawing.Size(173, 22);
+            this.EmployerNameBox.Size = new System.Drawing.Size(194, 26);
             this.EmployerNameBox.TabIndex = 11;
             this.EmployerNameBox.Text = "Введіть ваше ім\'я";
             this.EmployerNameBox.TextChanged += new System.EventHandler(this.EmployerNameBox_TextChanged);
             // 
             // EmployerIDBox
             // 
-            this.EmployerIDBox.Location = new System.Drawing.Point(6, 74);
+            this.EmployerIDBox.Location = new System.Drawing.Point(7, 92);
+            this.EmployerIDBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployerIDBox.Name = "EmployerIDBox";
-            this.EmployerIDBox.Size = new System.Drawing.Size(173, 22);
+            this.EmployerIDBox.Size = new System.Drawing.Size(194, 26);
             this.EmployerIDBox.TabIndex = 12;
             this.EmployerIDBox.Text = "Введіть ваш ID";
             this.EmployerIDBox.TextChanged += new System.EventHandler(this.EmployerIDBox_TextChanged);
@@ -164,9 +174,10 @@ namespace ProjectPostmail
             // EmployerButton
             // 
             this.EmployerButton.AutoSize = true;
-            this.EmployerButton.Location = new System.Drawing.Point(3, 187);
+            this.EmployerButton.Location = new System.Drawing.Point(3, 234);
+            this.EmployerButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployerButton.Name = "EmployerButton";
-            this.EmployerButton.Size = new System.Drawing.Size(173, 29);
+            this.EmployerButton.Size = new System.Drawing.Size(198, 38);
             this.EmployerButton.TabIndex = 14;
             this.EmployerButton.Text = "Вивести інформацію";
             this.EmployerButton.UseVisualStyleBackColor = true;
@@ -174,9 +185,10 @@ namespace ProjectPostmail
             // 
             // EmployerDepartmentBox
             // 
-            this.EmployerDepartmentBox.Location = new System.Drawing.Point(3, 18);
+            this.EmployerDepartmentBox.Location = new System.Drawing.Point(3, 22);
+            this.EmployerDepartmentBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployerDepartmentBox.Name = "EmployerDepartmentBox";
-            this.EmployerDepartmentBox.Size = new System.Drawing.Size(175, 22);
+            this.EmployerDepartmentBox.Size = new System.Drawing.Size(196, 26);
             this.EmployerDepartmentBox.TabIndex = 0;
             this.EmployerDepartmentBox.Text = "Введіть номер відділення";
             this.EmployerDepartmentBox.TextChanged += new System.EventHandler(this.EmployerDepartmentBox_TextChanged);
@@ -184,10 +196,11 @@ namespace ProjectPostmail
             // EmployerTab
             // 
             this.EmployerTab.Controls.Add(this.DepartmentEmployeeGroupBox);
-            this.EmployerTab.Location = new System.Drawing.Point(4, 25);
+            this.EmployerTab.Location = new System.Drawing.Point(4, 29);
+            this.EmployerTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployerTab.Name = "EmployerTab";
-            this.EmployerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.EmployerTab.Size = new System.Drawing.Size(792, 421);
+            this.EmployerTab.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.EmployerTab.Size = new System.Drawing.Size(892, 529);
             this.EmployerTab.TabIndex = 1;
             this.EmployerTab.Text = "Працівник";
             this.EmployerTab.UseVisualStyleBackColor = true;
@@ -201,9 +214,11 @@ namespace ProjectPostmail
             this.DepartmentEmployeeGroupBox.Controls.Add(this.EmployeeGroupBox);
             this.DepartmentEmployeeGroupBox.Controls.Add(this.EmployeeDepartmentBox);
             this.DepartmentEmployeeGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DepartmentEmployeeGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.DepartmentEmployeeGroupBox.Location = new System.Drawing.Point(3, 4);
+            this.DepartmentEmployeeGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DepartmentEmployeeGroupBox.Name = "DepartmentEmployeeGroupBox";
-            this.DepartmentEmployeeGroupBox.Size = new System.Drawing.Size(786, 415);
+            this.DepartmentEmployeeGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DepartmentEmployeeGroupBox.Size = new System.Drawing.Size(886, 521);
             this.DepartmentEmployeeGroupBox.TabIndex = 5;
             this.DepartmentEmployeeGroupBox.TabStop = false;
             this.DepartmentEmployeeGroupBox.Text = "Відділення № ";
@@ -211,9 +226,10 @@ namespace ProjectPostmail
             // 
             // EmployeeData
             // 
-            this.EmployeeData.Location = new System.Drawing.Point(3, 46);
+            this.EmployeeData.Location = new System.Drawing.Point(3, 58);
+            this.EmployeeData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployeeData.Name = "EmployeeData";
-            this.EmployeeData.Size = new System.Drawing.Size(175, 22);
+            this.EmployeeData.Size = new System.Drawing.Size(196, 26);
             this.EmployeeData.TabIndex = 21;
             this.EmployeeData.ValueChanged += new System.EventHandler(this.EmployeeData_ValueChanged);
             // 
@@ -221,9 +237,9 @@ namespace ProjectPostmail
             // 
             this.EmployeeInfo.BackColor = System.Drawing.Color.Transparent;
             this.EmployeeInfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EmployeeInfo.Location = new System.Drawing.Point(215, 18);
+            this.EmployeeInfo.Location = new System.Drawing.Point(244, 23);
             this.EmployeeInfo.Name = "EmployeeInfo";
-            this.EmployeeInfo.Size = new System.Drawing.Size(568, 394);
+            this.EmployeeInfo.Size = new System.Drawing.Size(639, 494);
             this.EmployeeInfo.TabIndex = 20;
             this.EmployeeInfo.Text = "Інформація про Вас:";
             this.EmployeeInfo.Click += new System.EventHandler(this.EmployeeInfo_Click);
@@ -231,9 +247,10 @@ namespace ProjectPostmail
             // EmployeeButton
             // 
             this.EmployeeButton.AutoSize = true;
-            this.EmployeeButton.Location = new System.Drawing.Point(3, 187);
+            this.EmployeeButton.Location = new System.Drawing.Point(3, 234);
+            this.EmployeeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployeeButton.Name = "EmployeeButton";
-            this.EmployeeButton.Size = new System.Drawing.Size(173, 29);
+            this.EmployeeButton.Size = new System.Drawing.Size(198, 38);
             this.EmployeeButton.TabIndex = 17;
             this.EmployeeButton.Text = "Вивести інформацію";
             this.EmployeeButton.UseVisualStyleBackColor = true;
@@ -244,9 +261,11 @@ namespace ProjectPostmail
             this.EmployeeGroupBox.Controls.Add(this.EmployeeSurnameBox);
             this.EmployeeGroupBox.Controls.Add(this.EmployeeNameBox);
             this.EmployeeGroupBox.Controls.Add(this.EmployeeIDBox);
-            this.EmployeeGroupBox.Location = new System.Drawing.Point(3, 74);
+            this.EmployeeGroupBox.Location = new System.Drawing.Point(3, 92);
+            this.EmployeeGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployeeGroupBox.Name = "EmployeeGroupBox";
-            this.EmployeeGroupBox.Size = new System.Drawing.Size(193, 107);
+            this.EmployeeGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.EmployeeGroupBox.Size = new System.Drawing.Size(217, 134);
             this.EmployeeGroupBox.TabIndex = 16;
             this.EmployeeGroupBox.TabStop = false;
             this.EmployeeGroupBox.Text = "Заповніть особисті дані";
@@ -254,36 +273,40 @@ namespace ProjectPostmail
             // 
             // EmployeeSurnameBox
             // 
-            this.EmployeeSurnameBox.Location = new System.Drawing.Point(6, 46);
+            this.EmployeeSurnameBox.Location = new System.Drawing.Point(7, 58);
+            this.EmployeeSurnameBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployeeSurnameBox.Name = "EmployeeSurnameBox";
-            this.EmployeeSurnameBox.Size = new System.Drawing.Size(173, 22);
+            this.EmployeeSurnameBox.Size = new System.Drawing.Size(194, 26);
             this.EmployeeSurnameBox.TabIndex = 10;
             this.EmployeeSurnameBox.Text = "Введіть ваше прізвище";
             this.EmployeeSurnameBox.TextChanged += new System.EventHandler(this.EmployeeSurnameBox_TextChanged);
             // 
             // EmployeeNameBox
             // 
-            this.EmployeeNameBox.Location = new System.Drawing.Point(6, 18);
+            this.EmployeeNameBox.Location = new System.Drawing.Point(7, 22);
+            this.EmployeeNameBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployeeNameBox.Name = "EmployeeNameBox";
-            this.EmployeeNameBox.Size = new System.Drawing.Size(173, 22);
+            this.EmployeeNameBox.Size = new System.Drawing.Size(194, 26);
             this.EmployeeNameBox.TabIndex = 11;
             this.EmployeeNameBox.Text = "Введіть ваше ім\'я";
             this.EmployeeNameBox.TextChanged += new System.EventHandler(this.EmployeeNameBox_TextChanged);
             // 
             // EmployeeIDBox
             // 
-            this.EmployeeIDBox.Location = new System.Drawing.Point(6, 74);
+            this.EmployeeIDBox.Location = new System.Drawing.Point(7, 92);
+            this.EmployeeIDBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployeeIDBox.Name = "EmployeeIDBox";
-            this.EmployeeIDBox.Size = new System.Drawing.Size(173, 22);
+            this.EmployeeIDBox.Size = new System.Drawing.Size(194, 26);
             this.EmployeeIDBox.TabIndex = 12;
             this.EmployeeIDBox.Text = "Введіть ваш ID";
             this.EmployeeIDBox.TextChanged += new System.EventHandler(this.EmployeeIDBox_TextChanged);
             // 
             // EmployeeDepartmentBox
             // 
-            this.EmployeeDepartmentBox.Location = new System.Drawing.Point(3, 18);
+            this.EmployeeDepartmentBox.Location = new System.Drawing.Point(3, 22);
+            this.EmployeeDepartmentBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployeeDepartmentBox.Name = "EmployeeDepartmentBox";
-            this.EmployeeDepartmentBox.Size = new System.Drawing.Size(175, 22);
+            this.EmployeeDepartmentBox.Size = new System.Drawing.Size(196, 26);
             this.EmployeeDepartmentBox.TabIndex = 0;
             this.EmployeeDepartmentBox.Text = "Введіть номер відділення";
             this.EmployeeDepartmentBox.TextChanged += new System.EventHandler(this.EmployeeDepartmentBox_TextChanged);
@@ -293,7 +316,7 @@ namespace ProjectPostmail
             this.FormAccess.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FormAccess.Location = new System.Drawing.Point(0, 0);
             this.FormAccess.Name = "FormAccess";
-            this.FormAccess.Size = new System.Drawing.Size(800, 450);
+            this.FormAccess.Size = new System.Drawing.Size(900, 562);
             this.FormAccess.TabIndex = 6;
             this.FormAccess.Text = "   ";
             this.FormAccess.Click += new System.EventHandler(this.FormAccess_Click);
@@ -302,9 +325,11 @@ namespace ProjectPostmail
             // 
             this.PasswordBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.PasswordBox.Controls.Add(this.PasswordTextBox);
-            this.PasswordBox.Location = new System.Drawing.Point(300, 175);
+            this.PasswordBox.Location = new System.Drawing.Point(338, 219);
+            this.PasswordBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PasswordBox.Name = "PasswordBox";
-            this.PasswordBox.Size = new System.Drawing.Size(200, 100);
+            this.PasswordBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PasswordBox.Size = new System.Drawing.Size(225, 125);
             this.PasswordBox.TabIndex = 7;
             this.PasswordBox.TabStop = false;
             this.PasswordBox.Text = "Введіть пароль";
@@ -312,25 +337,27 @@ namespace ProjectPostmail
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(44, 39);
+            this.PasswordTextBox.Location = new System.Drawing.Point(50, 49);
+            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
-            this.PasswordTextBox.Size = new System.Drawing.Size(113, 22);
+            this.PasswordTextBox.Size = new System.Drawing.Size(127, 26);
             this.PasswordTextBox.TabIndex = 1;
             this.PasswordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
             this.PasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyUp);
             // 
             // AdministrationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProjectPostmail.Properties.Resources.banner;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(900, 562);
             this.Controls.Add(this.PasswordBox);
             this.Controls.Add(this.FormAccess);
             this.Controls.Add(this.PostofficeTab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AdministrationForm";
             this.Text = "AdministrationForm";
             this.Load += new System.EventHandler(this.AdministrationForm_Load);

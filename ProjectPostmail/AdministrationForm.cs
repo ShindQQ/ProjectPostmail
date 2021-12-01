@@ -76,26 +76,17 @@ namespace ProjectPostmail
 
         private void PostofficeNumberBox_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void PostofficeNumberBox_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (int.TryParse(EmployerDepartmentBox.Text, out int postofficenumber))
-                {
-                    DepartmentEmployerGroupBox.Text = "Відділення №" + postofficenumber.ToString();
-                }
-                else
-                {
-                    DepartmentEmployerGroupBox.Text = "Відділення № 0";
-                }
-            }
+            
         }
+
         private void DepartmentEmployerGroupBox_Enter(object sender, EventArgs e)
         {
-
+            
         }
 
         private void EmployerDepartmentBox_TextChanged(object sender, EventArgs e)
@@ -103,6 +94,15 @@ namespace ProjectPostmail
             if (!int.TryParse(EmployerDepartmentBox.Text, out employer_postoffice_number))
             {
                 MessageBox.Show("Mistake with data");
+            }
+
+            if(int.TryParse(EmployerDepartmentBox.Text, out int postofficenumber))
+            {
+                DepartmentEmployerGroupBox.Text = "Відділення №" + postofficenumber.ToString();
+            }
+            else
+            {
+                DepartmentEmployerGroupBox.Text = "Відділення № 0";
             }
 
             AutoComplete(EmployerDepartmentBox, auto_postoffice_number);
@@ -155,7 +155,7 @@ namespace ProjectPostmail
                 {
                     try
                     {
-                        employer = (new Employer(EmployerData.Value, EmployerNameBox.Text, EmployerSurnameBox.Text, employer_id, employer_postoffice_number, 0));
+                        employer = new Employer(EmployerData.Value, EmployerNameBox.Text, EmployerSurnameBox.Text, employer_id, employer_postoffice_number, 0);
                     }
                     catch (WorkersAmmountException exp)
                     {
@@ -211,6 +211,15 @@ namespace ProjectPostmail
             if (!int.TryParse(EmployeeDepartmentBox.Text, out employee_postoffice_number))
             {
                 MessageBox.Show("Mistake with data");
+            }
+
+            if (int.TryParse(EmployeeDepartmentBox.Text, out int postofficenumber))
+            {
+                DepartmentEmployeeGroupBox.Text = "Відділення №" + postofficenumber.ToString();
+            }
+            else
+            {
+                DepartmentEmployeeGroupBox.Text = "Відділення № 0";
             }
 
             AutoComplete(EmployeeDepartmentBox, auto_postoffice_number);

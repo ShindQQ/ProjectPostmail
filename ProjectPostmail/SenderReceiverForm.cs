@@ -12,7 +12,6 @@ using System.Globalization;
 namespace ProjectPostmail
 {
     delegate double Distance(PostOffice[] postoffices, int number_receiver, int number_sender);
-    
 
     public partial class SenderReceiverForm : Form
     {
